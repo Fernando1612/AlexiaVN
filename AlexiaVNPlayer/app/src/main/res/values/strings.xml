@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Alexia VN Player</string>
+    <string name="action_settings">Settings</string>
+    <string name="confirmTitle">¿Estas seguro?</string>
+    <string name="confirmMessage">Se quitara de la lista</string>
+
+    <string name="cancel_btn">Cancelar</string>
+    <string name="delete_btn">Eliminar</string>
+    <string name="delete">Eliminar</string>
+</resources>
