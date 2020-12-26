@@ -21,18 +21,20 @@ public class Preferences extends Activity {
         mmthemeId = intent.getIntExtra("theme", android.R.style.Theme_Holo);
         getPreferencesTheme();
         setTheme(themeId);
-        btnRegresar = (Button) findViewById(R.id.regresar);
 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
 
+        btnRegresar = (Button) findViewById(R.id.regresar);
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 regresar();
             }
         });
+
+
     }
 
     private void regresar() {
