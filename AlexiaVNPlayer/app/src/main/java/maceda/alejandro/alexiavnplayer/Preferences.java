@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 
 public class Preferences extends Activity {
 
     private int mmthemeId;
     private int themeId;
+    private Button btnRegresar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,14 +21,22 @@ public class Preferences extends Activity {
         mmthemeId = intent.getIntExtra("theme", android.R.style.Theme_Holo);
         getPreferencesTheme();
         setTheme(themeId);
+        btnRegresar = (Button) findViewById(R.id.regresar);
 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
+
+        btnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                regresar();
+            }
+        });
     }
 
-    public void regresar(View view) {
-        Intent alexavn = new Intent(getApplicationContext(), alexavn.class);
+    private void regresar() {
+        Intent alexavn = new Intent(this, alexavn.class);
         startActivity(alexavn);
         finish();
 

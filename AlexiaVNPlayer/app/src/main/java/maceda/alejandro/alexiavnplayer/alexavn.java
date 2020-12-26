@@ -59,6 +59,8 @@ private int music_position;
 private VideoView mvideo;
 private int current_line = 0;
 
+private ImageButton btnPreferences;
+
 private RelativeLayout.LayoutParams lp;
 	
 	public MediaPlayer mediaPlayer;
@@ -112,6 +114,15 @@ private RelativeLayout.LayoutParams lp;
 		iv_right_big = (ImageView) findViewById(R.id.iv_right_big);
 		textbox_image = (ImageView) findViewById(R.id.textbox_image);
 		mvideo = (VideoView) findViewById(R.id.mvideoView);
+
+		btnPreferences = (ImageButton) findViewById(R.id.imageButton);
+
+		btnPreferences.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				preferencias();
+			}
+		});
 	//	tv.setText("/sdcard/alexavn/El Principio");
 		//Animation
 	//	writer.setCharacterDelay(150);
@@ -158,7 +169,7 @@ private RelativeLayout.LayoutParams lp;
 		
 	}
 
-	public void preferencias(View view){
+	private void preferencias(){
     	//Toast.makeText(this,"Prueba",Toast.LENGTH_SHORT).show();
 		Intent preferencias = new Intent(this, Preferences.class);
 		startActivity(preferencias);
