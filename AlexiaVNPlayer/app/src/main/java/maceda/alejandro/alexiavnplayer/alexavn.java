@@ -58,6 +58,8 @@ private int themeId;
 private int music_position;
 private VideoView mvideo;
 private int current_line = 0;
+private String current_sound;
+private String current_background;
 
 private ImageButton btnPreferences;
 
@@ -89,7 +91,7 @@ private RelativeLayout.LayoutParams lp;
 		recent_id = intent.getLongExtra("recent_id", 0);
 		startpage = intent.getIntExtra("start", 1);
 		textSize = intent.getIntExtra("textSize", 16);
-	
+
 		mmthemeId = intent.getIntExtra("theme", android.R.style.Theme_Holo);
 		getPreferencesTheme();
 		setTheme(themeId);
@@ -176,7 +178,7 @@ private RelativeLayout.LayoutParams lp;
     	//Toast.makeText(this,"Prueba",Toast.LENGTH_SHORT).show();
 		Intent preferencias = new Intent(this, Preferences.class);
 		startActivity(preferencias);
-		finish();
+		//finish();
 	}
 	
 	private void show_title (String title, String color, int size) {
@@ -440,6 +442,7 @@ private RelativeLayout.LayoutParams lp;
 						   Toast.LENGTH_LONG).show();
 						   */
 			iv_background.setImageBitmap(bitmap);
+			current_background = pic;
 		}	
 	}
 	
@@ -1126,6 +1129,17 @@ private RelativeLayout.LayoutParams lp;
 
                 next_line(null);
 			}
+
+
+			else if (separated[0].equals("[NAMECHAR]")) {
+                character_tv.setVisibility(View.VISIBLE);
+                character_tv.setText(separated[1]);
+
+            }
+			else if (separated[0].equals("[CLEARNAMECHAR]")) {
+                character_tv.setVisibility(View.GONE);
+                character_tv.setText("");
+            }
 			else
 			
 				
@@ -1135,6 +1149,7 @@ private RelativeLayout.LayoutParams lp;
 				{
 				
 			if(line != null) {
+			    /*
 				if (separated.length > 2) {
 					character_tv.setVisibility(View.VISIBLE);
 					character_tv.setText(separated[1]);
@@ -1145,6 +1160,11 @@ private RelativeLayout.LayoutParams lp;
 			writer.animateText(separated[1], 50);
 			character_tv.setVisibility(View.GONE);
 			}
+
+			     */
+                lastwrite = separated[1];
+                writer.animateText(separated[1], 50);
+
 			}
 			else
 			finish();

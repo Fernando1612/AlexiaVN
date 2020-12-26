@@ -38,8 +38,8 @@ public class Preferences extends Activity {
     }
 
     private void regresar() {
-        Intent alexavn = new Intent(this, alexavn.class);
-        startActivity(alexavn);
+       // Intent alexavn = new Intent(this, alexavn.class);
+        //startActivity(alexavn);
         finish();
 
     }
