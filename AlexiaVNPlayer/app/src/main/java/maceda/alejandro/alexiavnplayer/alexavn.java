@@ -115,14 +115,17 @@ private RelativeLayout.LayoutParams lp;
 		textbox_image = (ImageView) findViewById(R.id.textbox_image);
 		mvideo = (VideoView) findViewById(R.id.mvideoView);
 
-		btnPreferences = (ImageButton) findViewById(R.id.imageButton);
+		//btnPreferences = (ImageButton) findViewById(R.id.ib_menu_preferences);
 
+		/*
 		btnPreferences.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				preferencias();
 			}
 		});
+		/*
+		 */
 	//	tv.setText("/sdcard/alexavn/El Principio");
 		//Animation
 	//	writer.setCharacterDelay(150);
@@ -163,7 +166,7 @@ private RelativeLayout.LayoutParams lp;
 		layout.addView(ll, lp);
 		
 		animFadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-		animFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+	animFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
 		
 	//	show_title("MAMADAS", "red", 22, 22);
 		
@@ -1264,5 +1267,9 @@ private RelativeLayout.LayoutParams lp;
         insertTask.execute();
 
     }
+
+	public void  go_settings (View v) {
+		preferencias();
+	}
 
 }
