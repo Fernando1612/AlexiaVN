@@ -1134,11 +1134,13 @@ private RelativeLayout.LayoutParams lp;
 			else if (separated[0].equals("[NAMECHAR]")) {
                 character_tv.setVisibility(View.VISIBLE);
                 character_tv.setText(separated[1]);
+				next_line(null);
 
             }
 			else if (separated[0].equals("[CLEARNAMECHAR]")) {
                 character_tv.setVisibility(View.GONE);
                 character_tv.setText("");
+				next_line(null);
             }
 			else
 			

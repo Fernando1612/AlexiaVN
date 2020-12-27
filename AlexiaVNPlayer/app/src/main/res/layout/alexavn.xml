@@ -59,6 +59,7 @@
 					android:layout_margin="10dp"
 					android:background="@drawable/gear"
 					android:clickable="true"
+					android:alpha="0.4"
 					android:onClick="go_settings"/>
 			</LinearLayout>
 			
