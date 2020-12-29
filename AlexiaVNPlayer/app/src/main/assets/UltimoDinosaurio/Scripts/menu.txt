@@ -2,12 +2,13 @@
 [FADEIN]+Withe
 [IMG]+intro.jpg
 [TEXTBOX]+modern.png
+[IGNORE]+texto, tamaño fuente, color texto, color fondo
+[NAMECHAR]+Ale+24+#ff0000+#00FFFF
 [IGNORE]+Comentario ignorado por el reproductor, notas para el autor
 [CHARBIG]+left+narrador.png
 [IGNORE]+ blanco:#ffffff - negro:#000000 - rojo:#ff0000 mas en http://www.color-hex.com
 [TEXTCOLOR]+#ffffff
 [TEXT]+"El ultimo dinosaurio en el universo"
-[NAMECHAR]+lblblblb
 [TEXTCOLOR]+#000000
 [TEXT]+El último dinosaurio en el universo se despierta y se da cuenta que es el último dinosario vivo.
 [TEXTCOLOR]+#ff0000
@@ -16,6 +17,7 @@
 [CHARBIGCLEAR]+left
 [CHAR]+center+narrador.png
 [TEXTCOLOR]+#ff00dc
+[CLEARNAMECHAR]
 [TEXT]+El dinosaurio esta solo.
 [TEXT]+Añora a su familia y a sus amigos.
 [TEXTCOLOR]+#ffffff
