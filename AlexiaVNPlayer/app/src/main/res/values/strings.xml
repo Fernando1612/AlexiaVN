@@ -7,4 +7,6 @@
     <string name="cancel_btn">Cancelar</string>
     <string name="delete_btn">Eliminar</string>
     <string name="delete">Eliminar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

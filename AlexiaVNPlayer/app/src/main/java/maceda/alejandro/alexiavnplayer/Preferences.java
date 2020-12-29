@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class Preferences extends Activity {
@@ -13,6 +14,7 @@ public class Preferences extends Activity {
     private int mmthemeId;
     private int themeId;
     private Button btnRegresar;
+    private TextView textoArriba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class Preferences extends Activity {
                 regresar();
             }
         });
+        textoArriba.setText("Guardar");
 
 
     }

@@ -1132,8 +1132,17 @@ private RelativeLayout.LayoutParams lp;
 
 
 			else if (separated[0].equals("[NAMECHAR]")) {
+				int sizeText =Integer.parseInt(separated[2]);
+				if (sizeText > 40) {
+					sizeText = 40;
+				}
                 character_tv.setVisibility(View.VISIBLE);
                 character_tv.setText(separated[1]);
+                character_tv.setTextSize(sizeText);
+				character_tv.setTextColor(Color.parseColor(separated[3]));
+				character_tv.setBackgroundColor(Color.parseColor(separated[4]));
+
+
 				next_line(null);
 
             }
@@ -1203,6 +1212,14 @@ private RelativeLayout.LayoutParams lp;
 			btn.setPadding(0,20,0,20);
 			btn.setTextSize(22);
 			btn.setTypeface(null, Typeface.BOLD);
+			/*
+		ViewGroup.LayoutParams params = btn.getLayoutParams();
+		//Button new width
+		params.width = 50;
+
+		btn.setLayoutParams(params);
+
+			 */
 	   	    btn.setOnClickListener(new View.OnClickListener() {
 				public void onClick (View view) {
 				//	show_toast(btn.getTag().toString());
