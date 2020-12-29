@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="menuPrincipal"
     tools:context=".Preferences">
 
 
@@ -152,7 +151,7 @@
         android:layout_height="280dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:background="#FFFFFF"
+        android:background="#61b1a9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName5"
         app:layout_constraintHorizontal_bias="0.0"

@@ -67,6 +67,7 @@ public class Preferences extends FragmentActivity{
         finish();
     }
 
+
     public void guardar(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.contenedor_fragment,fragmentGuardar);
