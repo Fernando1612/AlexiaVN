@@ -175,10 +175,8 @@ private RelativeLayout.LayoutParams lp;
 	}
 
 	private void preferencias(){
-    	//Toast.makeText(this,"Prueba",Toast.LENGTH_SHORT).show();
 		Intent preferencias = new Intent(this, Preferences.class);
 		startActivity(preferencias);
-		//finish();
 	}
 	
 	private void show_title (String title, String color, int size) {

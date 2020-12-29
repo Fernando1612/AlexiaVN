@@ -133,12 +133,6 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
             case R.id.action_settings:
                 new Settings(contexto,MainActivity.this);
                 return true;
-            case R.id.action_info:
-                new Informacion(contexto);
-                return true;
-            case R.id.action_about:
-                Toast.makeText(this, "About selesccionado", Toast.LENGTH_SHORT).show();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
 
@@ -173,10 +167,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         switch (requestCode) {
-
-
             case 1:
                 //	show_toast("inside result");
                 if (resultCode == RESULT_OK) {

@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class GuardarFragment extends Fragment {
+public class CargarFragment extends Fragment {
 
     private TextView txtSlots;
 
 
-    public GuardarFragment() {
+    public CargarFragment() {
         // Required empty public constructor
     }
 
@@ -23,12 +23,9 @@ public class GuardarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        View view = inflater.inflate(R.layout.fragment_guardar, container, false);
-        txtSlots = (TextView) view.findViewById(R.id.editTextTextPersonName5);
+        View view = inflater.inflate(R.layout.fragment_cargar, container, false);
+        txtSlots = (TextView) view.findViewById(R.id.editTextSlots);
         txtSlots.setText("Slots");
         return view;
-
     }
-
 }

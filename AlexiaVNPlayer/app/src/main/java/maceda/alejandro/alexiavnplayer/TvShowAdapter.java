@@ -57,7 +57,6 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
             //    Toast.makeText(context, "Opening ... " + holder.textTvShow.getText(),Toast.LENGTH_SHORT).show();
                 start_alexavn( tvShow.getTvshow_id() , tvShow.getTvshow(), tvShow.getTvshow_path(), tvShow.getTvshow_file(), tvShow.getTvshow_savefile(), tvShow.getTvshow_line(), tvShow.getTvshow_username(), tvShow.getImgTvshow());
 
-
             }
         });
 
