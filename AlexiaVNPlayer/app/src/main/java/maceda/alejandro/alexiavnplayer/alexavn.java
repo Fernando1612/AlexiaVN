@@ -1008,11 +1008,12 @@ private RelativeLayout.LayoutParams lp;
 				ll.setGravity(Gravity.CENTER);
 				int commands = 2;
 				int total_options = separated.length;
-				int total_buttons = ((total_options - 2) / 2 );
+				int total_buttons = ((total_options - 2) / 3 );
 				for (int i = 0; i < total_buttons;i++) {
 
-					add_button_option(separated[commands], separated[commands+1]);
+					add_button_option(separated[commands], separated[commands+1], separated[commands+2]);
 					commands++;
+     				commands++;
      				commands++;
 				}
 				writer.animateText(separated[1], 50);
@@ -1199,25 +1200,34 @@ private RelativeLayout.LayoutParams lp;
 	}
 	}
 	
-	private void add_button_option (String text, String name_file) {
+	private void add_button_option (String text, String name_file, String bsize) {
 		
 	//	ll.removeAllViews();
 	
 		final	Button btn = new Button(this);
+
+			int tSize = Integer.parseInt(bsize);
+			if (tSize > 2000) {
+				tSize = 2000;
+			}
 			//btn.setId(id);
 			btn.setText(text);
 			btn.setTag(name_file);
 			btn.setPadding(0,20,0,20);
 			btn.setTextSize(22);
 			btn.setTypeface(null, Typeface.BOLD);
+			btn.setLayoutParams(new LinearLayout.LayoutParams(tSize, ViewGroup.LayoutParams.WRAP_CONTENT));
+
 			/*
 		ViewGroup.LayoutParams params = btn.getLayoutParams();
 		//Button new width
 		params.width = 50;
 
 		btn.setLayoutParams(params);
+		*/
 
-			 */
+
+
 	   	    btn.setOnClickListener(new View.OnClickListener() {
 				public void onClick (View view) {
 				//	show_toast(btn.getTag().toString());
@@ -1228,7 +1238,8 @@ private RelativeLayout.LayoutParams lp;
 				}
 			});
 			// lp.addRule(RelativeLayout.RIGHT_OF, <Id>);
-			ll.setPadding(300,50,300,50);
+			//ll.setPadding(300,50,300,50);
+
 			ll.addView(btn); 
 
 	}

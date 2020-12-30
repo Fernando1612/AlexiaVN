@@ -17,8 +17,6 @@ public class GuardarFragment extends Fragment {
         // Required empty public constructor
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,7 +26,7 @@ public class GuardarFragment extends Fragment {
         txtSlots = (TextView) view.findViewById(R.id.editTextTextPersonName5);
         txtSlots.setText("Slots");
         return view;
-
     }
+
 
 }

@@ -133,6 +133,9 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
             case R.id.action_settings:
                 new Settings(contexto,MainActivity.this);
                 return true;
+            case R.id.action_ayuda:
+                new Ayuda(contexto);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
 

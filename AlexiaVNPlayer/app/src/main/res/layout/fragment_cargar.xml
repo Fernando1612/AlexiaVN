@@ -85,6 +85,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
+            android:textColor="#61b1a9"
             android:inputType="textPersonName"
             android:text="Name"
             android:textSize="10sp"

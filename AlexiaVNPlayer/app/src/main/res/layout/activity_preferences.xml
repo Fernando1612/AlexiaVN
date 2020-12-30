@@ -15,6 +15,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:textColor="#61b1a9"
         android:gravity="left"
         android:inputType="textPersonName"
         android:text="Name"
