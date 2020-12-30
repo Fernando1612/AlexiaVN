@@ -1010,11 +1010,8 @@ private RelativeLayout.LayoutParams lp;
 				int total_options = separated.length;
 				int total_buttons = ((total_options - 2) / 3 );
 				for (int i = 0; i < total_buttons;i++) {
-
-					add_button_option(separated[commands], separated[commands+1], separated[commands+2]);
-					commands++;
-     				commands++;
-     				commands++;
+					add_button_option(separated[commands], separated[commands+1], separated[commands+2],separated[commands+3], separated[commands+4], separated[commands+5]);
+					commands = commands + 6;
 				}
 				writer.animateText(separated[1], 50);
 				fin = true;
@@ -1137,8 +1134,11 @@ private RelativeLayout.LayoutParams lp;
 				}
                 character_tv.setVisibility(View.VISIBLE);
                 character_tv.setText(separated[1]);
+                //Tamaño del texto
                 character_tv.setTextSize(sizeText);
+                // Color del texto
 				character_tv.setTextColor(Color.parseColor(separated[3]));
+				//Color de fondo
 				character_tv.setBackgroundColor(Color.parseColor(separated[4]));
 
 
@@ -1200,7 +1200,7 @@ private RelativeLayout.LayoutParams lp;
 	}
 	}
 	
-	private void add_button_option (String text, String name_file, String bsize) {
+	private void add_button_option (String text, String name_file, String bsize, String txtSize, String bgColor, String tColor) {
 		
 	//	ll.removeAllViews();
 	
@@ -1210,6 +1210,20 @@ private RelativeLayout.LayoutParams lp;
 			if (tSize > 2000) {
 				tSize = 2000;
 			}
+
+			int sizeText =Integer.parseInt(txtSize);
+			if (sizeText > 60) {
+				sizeText = 60;
+			}
+
+			//Color de texto
+			btn.setTextColor(Color.parseColor(tColor));
+			//Color bacground
+			btn.setBackgroundColor(Color.parseColor(bgColor));
+			//Tamaño de la fuente
+			btn.setTextSize(sizeText);
+
+
 			//btn.setId(id);
 			btn.setText(text);
 			btn.setTag(name_file);
