@@ -71,8 +71,12 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
             public void onClick(View view) {
                // Snackbar.make(view, "Abriendo VN...", Snackbar.LENGTH_LONG)
                  //       .setAction("Action", null).show();
-                open_alexavn();
-
+                if (isStoragePermissionGranted()) {
+                    createcarpet();
+                    open_alexavn();
+                } else {
+                    show_toast("No hay permisos otorgados");
+                }
             }
         });
 
@@ -100,11 +104,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(tvShowAdapter);
-        if (isStoragePermissionGranted()) {
-            createcarpet();
-        } else {
-            show_toast("No hay permisos otorgados");
-        }
+
 
         cargarPreferencias();
 
@@ -167,6 +167,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
             return true;
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

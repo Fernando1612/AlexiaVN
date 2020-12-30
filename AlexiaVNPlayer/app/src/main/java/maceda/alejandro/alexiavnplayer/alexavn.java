@@ -35,11 +35,11 @@ private BitmapFactory.Options options, options1;
 private Bitmap bm, bm1;
 private String vn_name = "";
 private String file_path="";
-private String file_name="";
+public static String file_name="";
 private String savefile="";
 private String file_image = "";
 private int line = 0;
-private  long recent_id = 0;
+public static long recent_id = 0;
 private String username="";
 private int startpage=0;
 private Typewriter writer;
@@ -413,7 +413,6 @@ private RelativeLayout.LayoutParams lp;
 
 		if(bitmap1 == null){
 			Toast.makeText(getApplicationContext(), "the image data could not be decoded", Toast.LENGTH_LONG).show();
-
 		}else{
 			/*
 			 Toast.makeText(getApplicationContext(), 
@@ -432,7 +431,6 @@ private RelativeLayout.LayoutParams lp;
 
 		if(bitmap == null){
 			Toast.makeText(getApplicationContext(), "the image data could not be decoded", Toast.LENGTH_LONG).show();
-
 		}else{
 			/*
 			Toast.makeText(getApplicationContext(), 
@@ -1009,11 +1007,11 @@ private RelativeLayout.LayoutParams lp;
 				int commands = 2;
 				int total_options = separated.length;
 				int total_buttons = ((total_options - 2) / 3 );
+				writer.animateText(separated[1], 50);
 				for (int i = 0; i < total_buttons;i++) {
 					add_button_option(separated[commands], separated[commands+1], separated[commands+2],separated[commands+3], separated[commands+4], separated[commands+5]);
 					commands = commands + 6;
 				}
-				writer.animateText(separated[1], 50);
 				fin = true;
 			}
 			else if (separated[0].equals("[END]")) {
@@ -1122,7 +1120,6 @@ private RelativeLayout.LayoutParams lp;
                 //saveRecent(sarray[0], curPath, sarray[1], sarray[2]  );
 
 
-
                 next_line(null);
 			}
 
@@ -1149,7 +1146,20 @@ private RelativeLayout.LayoutParams lp;
                 character_tv.setVisibility(View.GONE);
                 character_tv.setText("");
 				next_line(null);
-            }
+
+            }else if (separated[0].equals("[CHOISESIMAGE]")) {
+				ll.removeAllViews();
+				ll.setGravity(Gravity.CENTER);
+				int commands = 2;
+				int total_options = separated.length;
+				int total_buttons = ((total_options - 2) / 3 );
+				writer.animateText(separated[1], 50);
+				for (int i = 0; i < total_buttons;i++) {
+					add_image_option(separated[commands], separated[commands+1], separated[commands+2]);
+					commands = commands + 3;
+				}
+				fin = true;
+			}
 			else
 			
 				
@@ -1191,8 +1201,6 @@ private RelativeLayout.LayoutParams lp;
 				//	load=0;
 				//	firstline=true;
 
-			
-
 		}
 			
 	}
@@ -1204,7 +1212,7 @@ private RelativeLayout.LayoutParams lp;
 		
 	//	ll.removeAllViews();
 	
-		final	Button btn = new Button(this);
+		final Button btn = new Button(this);
 
 			int tSize = Integer.parseInt(bsize);
 			if (tSize > 2000) {
@@ -1230,7 +1238,12 @@ private RelativeLayout.LayoutParams lp;
 			btn.setPadding(0,20,0,20);
 			btn.setTextSize(22);
 			btn.setTypeface(null, Typeface.BOLD);
-			btn.setLayoutParams(new LinearLayout.LayoutParams(tSize, ViewGroup.LayoutParams.WRAP_CONTENT));
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+					tSize,
+					LinearLayout.LayoutParams.WRAP_CONTENT
+			);
+			params.setMargins(0, 20, 0, 20);
+			btn.setLayoutParams(params);
 
 			/*
 		ViewGroup.LayoutParams params = btn.getLayoutParams();
@@ -1254,8 +1267,39 @@ private RelativeLayout.LayoutParams lp;
 			// lp.addRule(RelativeLayout.RIGHT_OF, <Id>);
 			//ll.setPadding(300,50,300,50);
 
-			ll.addView(btn); 
+			ll.addView(btn);
+	}
 
+	private void add_image_option(String nImage, String name_file, String iSize){
+		final ImageView img = new ImageView(this);
+
+		Bitmap bitmap;
+		bitmap = decodeSampledBitmapFromUri(file_path+"/Scenes/"+nImage,
+				img.getWidth(), img.getHeight());
+
+		img.setImageBitmap(bitmap);
+		img.setTag(name_file);
+		int tSize = Integer.parseInt(iSize);
+		if (tSize > 2000) {
+			tSize = 2000;
+		}
+		img.setPadding(0,20,0,20);
+
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.WRAP_CONTENT,
+				tSize
+		);
+		img.setLayoutParams(params);
+
+		img.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				file_path = file_path+"Scripts/";
+				file_name = img.getTag().toString();
+				readfile();
+			}
+		});
+		ll.addView(img);
 	}
 	private void getPreferencesTheme () {
 
@@ -1308,8 +1352,6 @@ private RelativeLayout.LayoutParams lp;
                     {
 
 
-
-
                         //" (_id integer primary key autoincrement, name, path, file, line, image)
                         dbConnector.updateRecent(c_id, c_name);
 
@@ -1333,5 +1375,6 @@ private RelativeLayout.LayoutParams lp;
 	public void  go_settings (View v) {
 		preferencias();
 	}
+
 
 }
