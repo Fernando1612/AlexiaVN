@@ -50,6 +50,9 @@ public class Preferences extends FragmentActivity{
             }
         });
 
+       // = 		vn_name = intent.getStringExtra("lastimage");
+
+
         //Intaciar todos los fragments
         fragmentGuardar = new GuardarFragment();
         fragmentCargar = new CargarFragment();

@@ -1,6 +1,7 @@
 package maceda.alejandro.alexiavnplayer;
 
 import android.app.*;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
@@ -162,6 +163,7 @@ private RelativeLayout.LayoutParams lp;
 			RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT );
 
 		ll = new LinearLayout(this);
+
 		ll.setOrientation(LinearLayout.VERTICAL);
 		ll.setGravity(Gravity.CENTER);
 	//	ll.setPadding(300,50,300,50);
@@ -176,6 +178,7 @@ private RelativeLayout.LayoutParams lp;
 
 	private void preferencias(){
 		Intent preferencias = new Intent(this, Preferences.class);
+		//preferencias.putExtra(lastImageLoad);
 		startActivity(preferencias);
 	}
 	
@@ -189,6 +192,7 @@ private RelativeLayout.LayoutParams lp;
 		title_tv.setTextColor(Color.parseColor(color));
 		title_tv.setGravity(Gravity.CENTER);
 
+		ll.setOrientation(LinearLayout.VERTICAL);
 		ll.setPadding(10,10,10,10);
 		ll.addView(title_tv); 
 		title_tv.startAnimation(animFadeIn);
@@ -207,6 +211,7 @@ private RelativeLayout.LayoutParams lp;
 					//					   "ImageView: " + iv.getWidth() + " x " + iv.getHeight(), Toast.LENGTH_LONG).show();
 					//		load_image(	"/sdcard/bluetooth/note_big_0051.jpg");
 					ll.removeView(tv);
+					ll.setOrientation(LinearLayout.VERTICAL);
 					ll.setPadding(0,0,0,0);
 				
 				}
@@ -226,7 +231,8 @@ private RelativeLayout.LayoutParams lp;
 		
 
 		ll.setPadding(0,0,0,0);
-		ll.addView(avatar_iv); 
+		ll.addView(avatar_iv);
+		ll.setOrientation(LinearLayout.VERTICAL);
 		//getsize.animateText();
 	
 	}
@@ -332,6 +338,7 @@ private RelativeLayout.LayoutParams lp;
 				mHandler.removeCallbacks(characterAdder);
 				mHandler.postDelayed(characterAdder, mDelay);
 			}
+
 		//	public void setCharacterDelay (long millis) {
 	//			mDelay = millis;
 		//	}
@@ -1053,7 +1060,7 @@ private RelativeLayout.LayoutParams lp;
 				hide_title();
 				next_line(null);
 			}
-		else if (separated[0].equals("[AVATAR]")) {
+			else if (separated[0].equals("[AVATAR]")) {
 
 				show_avatar(separated[1]);
 				//	vibrate(Integer.valueOf(separated[1]));
@@ -1129,7 +1136,14 @@ private RelativeLayout.LayoutParams lp;
 				if (sizeText > 40) {
 					sizeText = 40;
 				}
-                character_tv.setVisibility(View.VISIBLE);
+				LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+						LinearLayout.LayoutParams.WRAP_CONTENT,
+						LinearLayout.LayoutParams.WRAP_CONTENT
+				);
+				params.setMargins(20, 0, 0, 0);
+				character_tv.setLayoutParams(params);
+
+				character_tv.setVisibility(View.VISIBLE);
                 character_tv.setText(separated[1]);
                 //Tamaño del texto
                 character_tv.setTextSize(sizeText);
@@ -1147,7 +1161,8 @@ private RelativeLayout.LayoutParams lp;
                 character_tv.setText("");
 				next_line(null);
 
-            }else if (separated[0].equals("[CHOISESIMAGE]")) {
+            }
+			else if (separated[0].equals("[CHOISESIMAGE]")) {
 				ll.removeAllViews();
 				ll.setGravity(Gravity.CENTER);
 				int commands = 2;
@@ -1155,19 +1170,34 @@ private RelativeLayout.LayoutParams lp;
 				int total_buttons = ((total_options - 2) / 3 );
 				writer.animateText(separated[1], 50);
 				for (int i = 0; i < total_buttons;i++) {
-					add_image_option(separated[commands], separated[commands+1], separated[commands+2]);
-					commands = commands + 3;
+					add_image_option(separated[commands], separated[commands+1], separated[commands+2], separated[commands+3]);
+					commands = commands + 4;
 				}
 				fin = true;
 			}
+			else if (separated[0].equals("[NPLAYER]")) {
+
+				SharedPreferences preferences = this.getSharedPreferences("Informacion", Context.MODE_PRIVATE);
+				String nombre = preferences.getString("nombre","No existe la informacion");
+
+
+				writer.animateText(separated[1] + " " + nombre + " " + separated[2] ,50);
+				//next_line(null);
+				String hut = "";
+				if(hut.contains("[NPLAYER]")){
+					hut.replace("[NPLAYER]", nombre);
+				}
+
+			}
 			else
-			
-				
+
+
+
 			//	separated[0]; // this will contain "Fruit"
 			//separated[1]; /
 
 				{
-				
+
 			if(line != null) {
 			    /*
 				if (separated.length > 2) {
@@ -1182,6 +1212,10 @@ private RelativeLayout.LayoutParams lp;
 			}
 
 			     */
+
+				
+
+
                 lastwrite = separated[1];
                 writer.animateText(separated[1], 50);
 
@@ -1242,7 +1276,7 @@ private RelativeLayout.LayoutParams lp;
 					tSize,
 					LinearLayout.LayoutParams.WRAP_CONTENT
 			);
-			params.setMargins(0, 20, 0, 20);
+			params.setMargins(0, 20, 0, 10);
 			btn.setLayoutParams(params);
 
 			/*
@@ -1267,40 +1301,63 @@ private RelativeLayout.LayoutParams lp;
 			// lp.addRule(RelativeLayout.RIGHT_OF, <Id>);
 			//ll.setPadding(300,50,300,50);
 
-			ll.addView(btn);
+		ll.setOrientation(LinearLayout.VERTICAL);
+		ll.addView(btn);
 	}
 
-	private void add_image_option(String nImage, String name_file, String iSize){
-		final ImageView img = new ImageView(this);
+	private void add_image_option(String nImage, String name_file, String wSize, String hSize){
 
-		Bitmap bitmap;
-		bitmap = decodeSampledBitmapFromUri(file_path+"/Scenes/"+nImage,
-				img.getWidth(), img.getHeight());
+		//	ll.removeAllViews();
 
-		img.setImageBitmap(bitmap);
-		img.setTag(name_file);
-		int tSize = Integer.parseInt(iSize);
-		if (tSize > 2000) {
-			tSize = 2000;
+		//width - ancho
+		//heihght - alto
+		final ImageView iBtn = new ImageView(this);
+
+		iBtn.setBackgroundColor(Color.TRANSPARENT);
+		iBtn.setImageURI(Uri.parse(file_path+"/Scenes/"+nImage));
+
+		int widthSize = Integer.parseInt(wSize);
+
+
+		int heightSize = Integer.parseInt(hSize);
+
+		int width = widthSize;
+		int height = heightSize;
+
+		if(width > 2000 ){
+			width = 2000;
 		}
-		img.setPadding(0,20,0,20);
 
-		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.WRAP_CONTENT,
-				tSize
-		);
-		img.setLayoutParams(params);
+		if (height > 500) {
+			height = 500;
+		}
 
-		img.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
+		iBtn.setPadding(0,20,0,20);
+		LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(width,height);
+		parms.setMargins(10, 20, 10, 20);
+		iBtn.setLayoutParams(parms);
+
+		iBtn.setTag(name_file);
+
+
+
+		iBtn.setOnClickListener(new View.OnClickListener() {
+			public void onClick (View view) {
+				//	show_toast(btn.getTag().toString());
 				file_path = file_path+"Scripts/";
-				file_name = img.getTag().toString();
+				file_name = iBtn.getTag().toString();
+				//	show_toast(file_path+file_name);
 				readfile();
 			}
 		});
-		ll.addView(img);
+		// lp.addRule(RelativeLayout.RIGHT_OF, <Id>);
+		//ll.setPadding(300,50,300,50);
+
+		ll.setOrientation(LinearLayout.HORIZONTAL);
+		ll.addView(iBtn);
+
 	}
+
 	private void getPreferencesTheme () {
 
 		if (mmthemeId == android.R.style.Theme_Holo ) {
@@ -1319,13 +1376,15 @@ private RelativeLayout.LayoutParams lp;
 			themeId = android.R.style.Theme_Light_NoTitleBar_Fullscreen;
 		}
 
-	}	
+	}
+
 	@Override
 	public void onPause() {
 		super.onPause();  // Always call the superclass method first
 
 		pause_mp();
 	}
+
 	public void onDestroy() {
 
 		super.onDestroy();
