@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="333f7e41-0d74-4a4b-8b69-638b9bf13e36" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AlexiaVNPlayer/.idea/.gitignore" beforeDir="false" />
@@ -12,11 +13,15 @@
       <change beforePath="$PROJECT_DIR$/AlexiaVNPlayer/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/AlexiaVNPlayer/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
     </list>
+=======
+    <list default="true" id="93e629ca-f2b3-426a-876b-de13e39f15c2" name="Default Changelist" comment="" />
+>>>>>>> 053080dd859505097e864357540d36c7b3e43992
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -26,6 +31,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1m5suZY91DA4hPwuDydxjF15f0i" />
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1sEHBX1l6qz6KfF6iejTn1ssexd" />
+>>>>>>> 053080dd859505097e864357540d36c7b3e43992
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,6 +45,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
@@ -43,16 +55,26 @@
       </method>
     </configuration>
   </component>
+=======
+>>>>>>> 053080dd859505097e864357540d36c7b3e43992
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="333f7e41-0d74-4a4b-8b69-638b9bf13e36" name="Default Changelist" comment="" />
       <created>1608795009507</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608795009507</updated>
+=======
+      <changelist id="93e629ca-f2b3-426a-876b-de13e39f15c2" name="Default Changelist" comment="" />
+      <created>1620430695339</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620430695339</updated>
+>>>>>>> 053080dd859505097e864357540d36c7b3e43992
     </task>
     <servers />
   </component>

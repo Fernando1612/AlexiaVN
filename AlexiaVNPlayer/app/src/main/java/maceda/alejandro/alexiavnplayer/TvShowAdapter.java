@@ -1,5 +1,6 @@
 package maceda.alejandro.alexiavnplayer;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -43,7 +44,7 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int  position) {
+    public void onBindViewHolder(final ViewHolder holder, @SuppressLint("RecyclerView") final int  position) {
         final TvShow tvShow = TvShowList.get(position);
 
         holder.textTvShow.setText(tvShow.getTvshow());
@@ -56,7 +57,6 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
               //  Toast.makeText(context,"The position is:"+position + "NAME: " + holder.textTvShow.getText(),Toast.LENGTH_SHORT).show();
             //    Toast.makeText(context, "Opening ... " + holder.textTvShow.getText(),Toast.LENGTH_SHORT).show();
                 start_alexavn( tvShow.getTvshow_id() , tvShow.getTvshow(), tvShow.getTvshow_path(), tvShow.getTvshow_file(), tvShow.getTvshow_savefile(), tvShow.getTvshow_line(), tvShow.getTvshow_username(), tvShow.getImgTvshow());
-
 
             }
         });
@@ -115,7 +115,6 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
         alexavn.putExtra("username", m_username);
         alexavn.putExtra("recent_id", m_recent_id);
         alexavn.putExtra("image", m_image);
-
 
         // alexavn.putExtra("textSize", Integer.valueOf(textSize));
         alexavn.putExtra("textSize", 16);

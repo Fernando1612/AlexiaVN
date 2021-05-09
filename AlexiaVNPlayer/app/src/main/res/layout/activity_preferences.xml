@@ -6,75 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Preferences">
 
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="100dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton6"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="100dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
-
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="100dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
-        app:layout_constraintStart_toEndOf="@+id/imageButton5"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="100dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toTopOf="@+id/imageButton2"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
 
     <TextView
         android:id="@+id/guardar"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
-        android:gravity="center"
         android:ems="10"
+        android:textColor="#61b1a9"
+        android:gravity="left"
         android:inputType="textPersonName"
         android:text="Name"
-        android:textSize="10sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -86,7 +31,7 @@
         android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="button5,button3,button4,button7,button6,button8" />
+        app:constraint_referenced_ids="button5,btn_guardar,button4,button7,button6,button8" />
 
     <Button
         android:id="@+id/button5"
@@ -94,6 +39,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="16dp"
         android:background="@null"
+        android:onClick="galeria"
         android:text="Galeria"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -105,12 +51,13 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_guardar"
         android:layout_width="100dp"
         android:layout_height="20dp"
         android:layout_marginTop="24dp"
         android:alpha="1"
         android:background="@null"
+        android:onClick="guardar"
         android:text="Guardar"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -127,14 +74,15 @@
         android:layout_height="20dp"
         android:layout_marginTop="16dp"
         android:background="@null"
+        android:onClick="cargar"
         android:text="Cargar"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="@+id/btn_guardar"
+        app:layout_constraintTop_toBottomOf="@+id/btn_guardar"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -143,6 +91,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="16dp"
         android:background="@null"
+        android:onClick="menuPrincipal"
         android:text="Menù Principal"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -159,6 +108,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="16dp"
         android:background="@null"
+        android:onClick="preferencias"
         android:text="Preferencias"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -173,6 +123,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="16dp"
         android:background="@null"
+        android:onClick="acercaDe"
         android:text="Acerca de"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -199,58 +150,27 @@
         android:id="@+id/view"
         android:layout_width="1dp"
         android:layout_height="280dp"
-        android:background="#FFFFFF"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="#61b1a9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName5"
-        app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.40" />
-
-    <TextView
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:gravity="center"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="100dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="100dp"
-        android:layout_height="76dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+    <FrameLayout
+        android:id="@+id/contenedor_fragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
-        app:layout_constraintTop_toTopOf="@+id/imageButton2"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
 
 
 </android.support.constraint.ConstraintLayout>

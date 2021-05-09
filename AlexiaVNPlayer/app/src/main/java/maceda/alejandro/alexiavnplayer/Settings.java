@@ -8,6 +8,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class Settings {
 
@@ -36,18 +37,23 @@ public class Settings {
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (hombre.isChecked() == true) {
+                if (hombre.isChecked() == true && !nombre.getText().toString().isEmpty())  {
                     sexo = "Hombre";
-                }
-                if (mujer.isChecked() == true) {
+                    interfaz.ResultadoCuadroDialogo(nombre.getText().toString(),sexo);
+                    dialogo.dismiss();
+                }else if (mujer.isChecked() == true && !nombre.getText().toString().isEmpty()) {
                     sexo = "Mujer";
+                    interfaz.ResultadoCuadroDialogo(nombre.getText().toString(),sexo);
+                    dialogo.dismiss();
+                }else {
+
                 }
-                interfaz.ResultadoCuadroDialogo(nombre.getText().toString(),sexo);
-                dialogo.dismiss();
+
             }
         });
 
         dialogo.show();
     }
+
 
 }

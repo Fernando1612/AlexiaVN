@@ -1,6 +1,8 @@
 package maceda.alejandro.alexiavnplayer;
 
+import android.annotation.SuppressLint;
 import android.app.*;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
@@ -35,11 +37,11 @@ private BitmapFactory.Options options, options1;
 private Bitmap bm, bm1;
 private String vn_name = "";
 private String file_path="";
-private String file_name="";
+public static String file_name="";
 private String savefile="";
 private String file_image = "";
 private int line = 0;
-private  long recent_id = 0;
+public static long recent_id = 0;
 private String username="";
 private int startpage=0;
 private Typewriter writer;
@@ -98,7 +100,8 @@ private RelativeLayout.LayoutParams lp;
 		super.onCreate(savedInstanceState);
 		
 		show_toast(vn_name + ": " + file_path + savefile + " " + line + " " + username + " " + recent_id );//+" page: "+startpage);
-		
+
+
         writer = new Typewriter(this);
 		setContentView(R.layout.alexavn);
 		tv = (TextView) findViewById(R.id.text_story);
@@ -162,23 +165,34 @@ private RelativeLayout.LayoutParams lp;
 			RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT );
 
 		ll = new LinearLayout(this);
+
 		ll.setOrientation(LinearLayout.VERTICAL);
 		ll.setGravity(Gravity.CENTER);
 	//	ll.setPadding(300,50,300,50);
 		layout.addView(ll, lp);
 		
 		animFadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-	animFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+		animFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
 		
 	//	show_title("MAMADAS", "red", 22, 22);
 		
 	}
 
+
 	private void preferencias(){
-    	//Toast.makeText(this,"Prueba",Toast.LENGTH_SHORT).show();
 		Intent preferencias = new Intent(this, Preferences.class);
+		//preferencias.putExtra(lastImageLoad);
+		preferencias.putExtra("vnname",vn_name);
+		preferencias.putExtra("path",file_path);
+		preferencias.putExtra("file", file_name);
+		preferencias.putExtra("savefile",savefile);
+		preferencias.putExtra("image",file_image);
+		preferencias.putExtra("line",line);
+		preferencias.putExtra("username",username);
+		preferencias.putExtra("recent_id",recent_id);
+		preferencias.putExtra("start",startpage);
+		preferencias.putExtra("textSize", textSize);
 		startActivity(preferencias);
-		//finish();
 	}
 	
 	private void show_title (String title, String color, int size) {
@@ -191,6 +205,7 @@ private RelativeLayout.LayoutParams lp;
 		title_tv.setTextColor(Color.parseColor(color));
 		title_tv.setGravity(Gravity.CENTER);
 
+		ll.setOrientation(LinearLayout.VERTICAL);
 		ll.setPadding(10,10,10,10);
 		ll.addView(title_tv); 
 		title_tv.startAnimation(animFadeIn);
@@ -209,6 +224,7 @@ private RelativeLayout.LayoutParams lp;
 					//					   "ImageView: " + iv.getWidth() + " x " + iv.getHeight(), Toast.LENGTH_LONG).show();
 					//		load_image(	"/sdcard/bluetooth/note_big_0051.jpg");
 					ll.removeView(tv);
+					ll.setOrientation(LinearLayout.VERTICAL);
 					ll.setPadding(0,0,0,0);
 				
 				}
@@ -228,7 +244,8 @@ private RelativeLayout.LayoutParams lp;
 		
 
 		ll.setPadding(0,0,0,0);
-		ll.addView(avatar_iv); 
+		ll.addView(avatar_iv);
+		ll.setOrientation(LinearLayout.VERTICAL);
 		//getsize.animateText();
 	
 	}
@@ -298,7 +315,7 @@ private RelativeLayout.LayoutParams lp;
 	*/
 	
 		
-	public class Typewriter extends TextView {
+	public class Typewriter extends android.support.v7.widget.AppCompatTextView {
 			private CharSequence mText;
 			private int mIndex;
 			private long mDelay = 100; //500ms delay
@@ -334,6 +351,7 @@ private RelativeLayout.LayoutParams lp;
 				mHandler.removeCallbacks(characterAdder);
 				mHandler.postDelayed(characterAdder, mDelay);
 			}
+
 		//	public void setCharacterDelay (long millis) {
 	//			mDelay = millis;
 		//	}
@@ -415,7 +433,6 @@ private RelativeLayout.LayoutParams lp;
 
 		if(bitmap1 == null){
 			Toast.makeText(getApplicationContext(), "the image data could not be decoded", Toast.LENGTH_LONG).show();
-
 		}else{
 			/*
 			 Toast.makeText(getApplicationContext(), 
@@ -434,7 +451,6 @@ private RelativeLayout.LayoutParams lp;
 
 		if(bitmap == null){
 			Toast.makeText(getApplicationContext(), "the image data could not be decoded", Toast.LENGTH_LONG).show();
-
 		}else{
 			/*
 			Toast.makeText(getApplicationContext(), 
@@ -737,6 +753,7 @@ private RelativeLayout.LayoutParams lp;
 				show_toast("Carpeta o Sd no econtrada");
 		}
 	}
+
 	private void load_line () {
 
 		boolean succes=false;
@@ -775,6 +792,8 @@ private RelativeLayout.LayoutParams lp;
 			succes=true;
 			//	((MainActivity) getActivity()).show_toast("Loading complete");
 		}
+
+
 		catch (Exception ex) {
 			show_toast("Open failed");
 			succes=false;
@@ -816,6 +835,7 @@ private RelativeLayout.LayoutParams lp;
 				file_path = file_path.replace("Scripts/", "");
 			
 				next_line(null);
+
 			//	show_toast("Import: "+loadf+" lineas");
 			//	loadCSV();
 				//	load=0;
@@ -825,7 +845,8 @@ private RelativeLayout.LayoutParams lp;
 
 		}
 	}
-	void show_toast (String msg) {
+
+	public void show_toast (String msg) {
 		Toast.makeText(getApplicationContext(), 
 					   msg, Toast.LENGTH_LONG).show();
 	}
@@ -867,6 +888,7 @@ private RelativeLayout.LayoutParams lp;
 		//	show_toast(""+buffer.getLineNumber());
 			line = buffer.readLine();
 			String[] separated = line.split("\\+");
+
 
 			if (separated[0].equals("[BGM]")) {
 			//	show_toast("INICIANDO SONIDO");
@@ -1010,14 +1032,12 @@ private RelativeLayout.LayoutParams lp;
 				ll.setGravity(Gravity.CENTER);
 				int commands = 2;
 				int total_options = separated.length;
-				int total_buttons = ((total_options - 2) / 2 );
-				for (int i = 0; i < total_buttons;i++) {
-
-					add_button_option(separated[commands], separated[commands+1]);
-					commands++;
-     				commands++;
-				}
+				int total_buttons = ((total_options - 2) / 3 );
 				writer.animateText(separated[1], 50);
+				for (int i = 0; i < total_buttons;i++) {
+					add_button_option(separated[commands], separated[commands+1], separated[commands+2],separated[commands+3], separated[commands+4], separated[commands+5]);
+					commands = commands + 6;
+				}
 				fin = true;
 			}
 			else if (separated[0].equals("[END]")) {
@@ -1059,7 +1079,7 @@ private RelativeLayout.LayoutParams lp;
 				hide_title();
 				next_line(null);
 			}
-		else if (separated[0].equals("[AVATAR]")) {
+			else if (separated[0].equals("[AVATAR]")) {
 
 				show_avatar(separated[1]);
 				//	vibrate(Integer.valueOf(separated[1]));
@@ -1126,14 +1146,32 @@ private RelativeLayout.LayoutParams lp;
                 //saveRecent(sarray[0], curPath, sarray[1], sarray[2]  );
 
 
-
                 next_line(null);
 			}
 
 
 			else if (separated[0].equals("[NAMECHAR]")) {
-                character_tv.setVisibility(View.VISIBLE);
+				int sizeText =Integer.parseInt(separated[2]);
+				if (sizeText > 40) {
+					sizeText = 40;
+				}
+				LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+						LinearLayout.LayoutParams.WRAP_CONTENT,
+						LinearLayout.LayoutParams.WRAP_CONTENT
+				);
+				params.setMargins(20, 0, 0, 0);
+				character_tv.setLayoutParams(params);
+
+				character_tv.setVisibility(View.VISIBLE);
                 character_tv.setText(separated[1]);
+                //Tamaño del texto
+                character_tv.setTextSize(sizeText);
+                // Color del texto
+				character_tv.setTextColor(Color.parseColor(separated[3]));
+				//Color de fondo
+				character_tv.setBackgroundColor(Color.parseColor(separated[4]));
+
+
 				next_line(null);
 
             }
@@ -1141,15 +1179,44 @@ private RelativeLayout.LayoutParams lp;
                 character_tv.setVisibility(View.GONE);
                 character_tv.setText("");
 				next_line(null);
+
             }
+			else if (separated[0].equals("[CHOISESIMAGE]")) {
+				ll.removeAllViews();
+				ll.setGravity(Gravity.CENTER);
+				int commands = 2;
+				int total_options = separated.length;
+				int total_buttons = ((total_options - 2) / 3 );
+				writer.animateText(separated[1], 50);
+				for (int i = 0; i < total_buttons;i++) {
+					add_image_option(separated[commands], separated[commands+1], separated[commands+2], separated[commands+3]);
+					commands = commands + 4;
+				}
+				fin = true;
+			}
+			else if (separated[0].equals("[NPLAYER]")) {
+
+				SharedPreferences preferences = this.getSharedPreferences("Informacion", Context.MODE_PRIVATE);
+				String nombre = preferences.getString("nombre","No existe la informacion");
+
+
+				writer.animateText(separated[1] + " " + nombre + " " + separated[2] ,50);
+				//next_line(null);
+				String hut = "";
+				if(hut.contains("[NPLAYER]")){
+					hut.replace("[NPLAYER]", nombre);
+				}
+
+			}
 			else
-			
-				
+
+
+
 			//	separated[0]; // this will contain "Fruit"
 			//separated[1]; /
 
 				{
-				
+
 			if(line != null) {
 			    /*
 				if (separated.length > 2) {
@@ -1164,6 +1231,7 @@ private RelativeLayout.LayoutParams lp;
 			}
 
 			     */
+
                 lastwrite = separated[1];
                 writer.animateText(separated[1], 50);
 
@@ -1183,8 +1251,6 @@ private RelativeLayout.LayoutParams lp;
 				//	load=0;
 				//	firstline=true;
 
-			
-
 		}
 			
 	}
@@ -1192,17 +1258,53 @@ private RelativeLayout.LayoutParams lp;
 	}
 	}
 	
-	private void add_button_option (String text, String name_file) {
+	private void add_button_option (String text, String name_file, String bsize, String txtSize, String bgColor, String tColor) {
 		
 	//	ll.removeAllViews();
 	
-		final	Button btn = new Button(this);
+		final Button btn = new Button(this);
+
+			int tSize = Integer.parseInt(bsize);
+			if (tSize > 2000) {
+				tSize = 2000;
+			}
+
+			int sizeText =Integer.parseInt(txtSize);
+			if (sizeText > 60) {
+				sizeText = 60;
+			}
+
+			//Color de texto
+			btn.setTextColor(Color.parseColor(tColor));
+			//Color bacground
+			btn.setBackgroundColor(Color.parseColor(bgColor));
+			//Tamaño de la fuente
+			btn.setTextSize(sizeText);
+
+
 			//btn.setId(id);
 			btn.setText(text);
 			btn.setTag(name_file);
 			btn.setPadding(0,20,0,20);
 			btn.setTextSize(22);
 			btn.setTypeface(null, Typeface.BOLD);
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+					tSize,
+					LinearLayout.LayoutParams.WRAP_CONTENT
+			);
+			params.setMargins(0, 20, 0, 10);
+			btn.setLayoutParams(params);
+
+			/*
+		ViewGroup.LayoutParams params = btn.getLayoutParams();
+		//Button new width
+		params.width = 50;
+
+		btn.setLayoutParams(params);
+		*/
+
+
+
 	   	    btn.setOnClickListener(new View.OnClickListener() {
 				public void onClick (View view) {
 				//	show_toast(btn.getTag().toString());
@@ -1213,10 +1315,65 @@ private RelativeLayout.LayoutParams lp;
 				}
 			});
 			// lp.addRule(RelativeLayout.RIGHT_OF, <Id>);
-			ll.setPadding(300,50,300,50);
-			ll.addView(btn); 
+			//ll.setPadding(300,50,300,50);
+
+		ll.setOrientation(LinearLayout.VERTICAL);
+		ll.addView(btn);
+	}
+
+	private void add_image_option(String nImage, String name_file, String wSize, String hSize){
+
+		//	ll.removeAllViews();
+
+		//width - ancho
+		//heihght - alto
+		final ImageView iBtn = new ImageView(this);
+
+		iBtn.setBackgroundColor(Color.TRANSPARENT);
+		iBtn.setImageURI(Uri.parse(file_path+"/Scenes/"+nImage));
+
+		int widthSize = Integer.parseInt(wSize);
+
+
+		int heightSize = Integer.parseInt(hSize);
+
+		int width = widthSize;
+		int height = heightSize;
+
+		if(width > 2000 ){
+			width = 2000;
+		}
+
+		if (height > 500) {
+			height = 500;
+		}
+
+		iBtn.setPadding(0,20,0,20);
+		LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(width,height);
+		parms.setMargins(10, 20, 10, 20);
+		iBtn.setLayoutParams(parms);
+
+		iBtn.setTag(name_file);
+
+
+
+		iBtn.setOnClickListener(new View.OnClickListener() {
+			public void onClick (View view) {
+				//	show_toast(btn.getTag().toString());
+				file_path = file_path+"Scripts/";
+				file_name = iBtn.getTag().toString();
+				//	show_toast(file_path+file_name);
+				readfile();
+			}
+		});
+		// lp.addRule(RelativeLayout.RIGHT_OF, <Id>);
+		//ll.setPadding(300,50,300,50);
+
+		ll.setOrientation(LinearLayout.HORIZONTAL);
+		ll.addView(iBtn);
 
 	}
+
 	private void getPreferencesTheme () {
 
 		if (mmthemeId == android.R.style.Theme_Holo ) {
@@ -1235,13 +1392,15 @@ private RelativeLayout.LayoutParams lp;
 			themeId = android.R.style.Theme_Light_NoTitleBar_Fullscreen;
 		}
 
-	}	
+	}
+
 	@Override
 	public void onPause() {
 		super.onPause();  // Always call the superclass method first
 
 		pause_mp();
 	}
+
 	public void onDestroy() {
 
 		super.onDestroy();
@@ -1260,14 +1419,12 @@ private RelativeLayout.LayoutParams lp;
         dbConnector.open();
 
 
-        AsyncTask<Object, Object, Cursor> insertTask =
+        @SuppressLint("StaticFieldLeak") AsyncTask<Object, Object, Cursor> insertTask =
                 new AsyncTask<Object, Object, Cursor>()
                 {
                     @Override
                     protected Cursor doInBackground(Object... params)
                     {
-
-
 
 
                         //" (_id integer primary key autoincrement, name, path, file, line, image)
@@ -1294,4 +1451,7 @@ private RelativeLayout.LayoutParams lp;
 		preferencias();
 	}
 
+
 }
+
+

@@ -24,10 +24,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 		String createRecents = "CREATE TABLE recents (_id integer primary key autoincrement, name, path, file, image, savefile, line, username);";
 
 		db.execSQL(createRecents);
-		
 
-		
-		
 	}
 
 	@Override
