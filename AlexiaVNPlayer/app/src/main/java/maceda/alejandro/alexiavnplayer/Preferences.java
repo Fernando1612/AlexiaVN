@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.FileReader;
 
@@ -28,6 +29,17 @@ public class Preferences extends FragmentActivity{
     GaleriaFragment fragmentGaleria;
     InfoFragment fragmentInformacion;
     AcercaDeFragment fragmentAcercaDe;
+
+    private String vn_name = "";
+    private String file_path="";
+    public static String file_name="";
+    private String savefile="";
+    private String file_image = "";
+    private int line = 0;
+    public static long recent_id = 0;
+    private String username="";
+    private int startpage=0;
+    private int textSize;
 
 
     @Override
@@ -50,10 +62,10 @@ public class Preferences extends FragmentActivity{
             }
         });
 
-       // = 		vn_name = intent.getStringExtra("lastimage");
+       traerVariables();
 
 
-        //Intaciar todos los fragments
+        //Instaciar todos los fragments
         fragmentGuardar = new GuardarFragment();
         fragmentCargar = new CargarFragment();
         fragmentGaleria = new GaleriaFragment();
@@ -131,6 +143,20 @@ public class Preferences extends FragmentActivity{
         if (mmthemeId == android.R.style.Theme_Light) {
             themeId = android.R.style.Theme_Light_NoTitleBar_Fullscreen;
         }
+    }
+
+    private void traerVariables(){
+        Intent intent = getIntent();
+        vn_name = intent.getStringExtra("vnname");
+        file_path = intent.getStringExtra("path");
+        file_name = intent.getStringExtra("file");
+        savefile = intent.getStringExtra("savefile");
+        file_image = intent.getStringExtra("image");
+        line = intent.getIntExtra("line", 0);
+        username = intent.getStringExtra("username");
+        recent_id = intent.getLongExtra("recent_id", 0);
+        startpage = intent.getIntExtra("start", 1);
+        textSize = intent.getIntExtra("textSize", 16);
     }
 
 

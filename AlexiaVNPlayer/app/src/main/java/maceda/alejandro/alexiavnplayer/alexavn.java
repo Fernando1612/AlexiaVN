@@ -1,5 +1,6 @@
 package maceda.alejandro.alexiavnplayer;
 
+import android.annotation.SuppressLint;
 import android.app.*;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -99,7 +100,8 @@ private RelativeLayout.LayoutParams lp;
 		super.onCreate(savedInstanceState);
 		
 		show_toast(vn_name + ": " + file_path + savefile + " " + line + " " + username + " " + recent_id );//+" page: "+startpage);
-		
+
+
         writer = new Typewriter(this);
 		setContentView(R.layout.alexavn);
 		tv = (TextView) findViewById(R.id.text_story);
@@ -170,15 +172,26 @@ private RelativeLayout.LayoutParams lp;
 		layout.addView(ll, lp);
 		
 		animFadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-	animFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+		animFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
 		
 	//	show_title("MAMADAS", "red", 22, 22);
 		
 	}
 
+
 	private void preferencias(){
 		Intent preferencias = new Intent(this, Preferences.class);
 		//preferencias.putExtra(lastImageLoad);
+		preferencias.putExtra("vnname",vn_name);
+		preferencias.putExtra("path",file_path);
+		preferencias.putExtra("file", file_name);
+		preferencias.putExtra("savefile",savefile);
+		preferencias.putExtra("image",file_image);
+		preferencias.putExtra("line",line);
+		preferencias.putExtra("username",username);
+		preferencias.putExtra("recent_id",recent_id);
+		preferencias.putExtra("start",startpage);
+		preferencias.putExtra("textSize", textSize);
 		startActivity(preferencias);
 	}
 	
@@ -302,7 +315,7 @@ private RelativeLayout.LayoutParams lp;
 	*/
 	
 		
-	public class Typewriter extends TextView {
+	public class Typewriter extends android.support.v7.widget.AppCompatTextView {
 			private CharSequence mText;
 			private int mIndex;
 			private long mDelay = 100; //500ms delay
@@ -740,6 +753,7 @@ private RelativeLayout.LayoutParams lp;
 				show_toast("Carpeta o Sd no econtrada");
 		}
 	}
+
 	private void load_line () {
 
 		boolean succes=false;
@@ -778,6 +792,8 @@ private RelativeLayout.LayoutParams lp;
 			succes=true;
 			//	((MainActivity) getActivity()).show_toast("Loading complete");
 		}
+
+
 		catch (Exception ex) {
 			show_toast("Open failed");
 			succes=false;
@@ -819,6 +835,7 @@ private RelativeLayout.LayoutParams lp;
 				file_path = file_path.replace("Scripts/", "");
 			
 				next_line(null);
+
 			//	show_toast("Import: "+loadf+" lineas");
 			//	loadCSV();
 				//	load=0;
@@ -828,7 +845,8 @@ private RelativeLayout.LayoutParams lp;
 
 		}
 	}
-	void show_toast (String msg) {
+
+	public void show_toast (String msg) {
 		Toast.makeText(getApplicationContext(), 
 					   msg, Toast.LENGTH_LONG).show();
 	}
@@ -870,6 +888,7 @@ private RelativeLayout.LayoutParams lp;
 		//	show_toast(""+buffer.getLineNumber());
 			line = buffer.readLine();
 			String[] separated = line.split("\\+");
+
 
 			if (separated[0].equals("[BGM]")) {
 			//	show_toast("INICIANDO SONIDO");
@@ -1213,9 +1232,6 @@ private RelativeLayout.LayoutParams lp;
 
 			     */
 
-				
-
-
                 lastwrite = separated[1];
                 writer.animateText(separated[1], 50);
 
@@ -1403,7 +1419,7 @@ private RelativeLayout.LayoutParams lp;
         dbConnector.open();
 
 
-        AsyncTask<Object, Object, Cursor> insertTask =
+        @SuppressLint("StaticFieldLeak") AsyncTask<Object, Object, Cursor> insertTask =
                 new AsyncTask<Object, Object, Cursor>()
                 {
                     @Override
@@ -1437,3 +1453,5 @@ private RelativeLayout.LayoutParams lp;
 
 
 }
+
+

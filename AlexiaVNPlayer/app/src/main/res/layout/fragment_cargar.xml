@@ -11,72 +11,69 @@
         android:layout_height="match_parent">
 
         <ImageButton
-            android:id="@+id/cargarImgBtn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/cargarImgBtn1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.35000002"
+            app:layout_constraintTop_toBottomOf="@+id/editTextSlots"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+
+        <ImageButton
+            android:id="@+id/cargarImgBtn2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/cargarImgBtn1"
+            app:layout_constraintTop_toTopOf="@+id/cargarImgBtn1"
             app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
 
         <ImageButton
             android:id="@+id/cargarImgBtn3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            app:layout_constraintEnd_toStartOf="@+id/cargarImgBtn2"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/cargarImgBtn2"
             app:layout_constraintTop_toTopOf="@+id/cargarImgBtn2"
-            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
-
-        <ImageButton
-            android:id="@+id/cargarImgBtn7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/cargarImgBtn5"
-            app:layout_constraintEnd_toEndOf="@+id/cargarImgBtn4"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cargarImgBtn4"
-            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
-
-        <ImageButton
-            android:id="@+id/cargarImgBtn5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            app:layout_constraintEnd_toStartOf="@+id/cargarImgBtn7"
-            app:layout_constraintTop_toBottomOf="@+id/cargarImgBtn2"
-            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
-
-        <ImageButton
-            android:id="@+id/cargarImgBtn6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            app:layout_constraintEnd_toStartOf="@+id/cargarImgBtn5"
-            app:layout_constraintTop_toBottomOf="@+id/cargarImgBtn3"
             app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
 
         <ImageButton
             android:id="@+id/cargarImgBtn4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/cargarImgBtn2"
-            app:layout_constraintTop_toTopOf="@+id/cargarImgBtn2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="@+id/cargarImgBtn1"
+            app:layout_constraintTop_toBottomOf="@+id/cargarImgBtn1"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+
+        <ImageButton
+            android:id="@+id/cargarImgBtn5"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/cargarImgBtn6"
+            app:layout_constraintTop_toTopOf="@+id/cargarImgBtn6"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+
+        <ImageButton
+            android:id="@+id/cargarImgBtn6"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/cargarImgBtn4"
+            app:layout_constraintTop_toTopOf="@+id/cargarImgBtn4"
             app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
 
         <TextView
@@ -85,15 +82,16 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
-            android:textColor="#61b1a9"
             android:inputType="textPersonName"
             android:text="Name"
+            android:textColor="#61b1a9"
             android:textSize="10sp"
-            app:layout_constraintBottom_toTopOf="@+id/cargarImgBtn2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.463"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.73" />
+            app:layout_constraintVertical_bias="0.151"  />
 
     </android.support.constraint.ConstraintLayout>
 
