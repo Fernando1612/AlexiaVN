@@ -19,11 +19,16 @@ import android.widget.Toast;
 import java.io.File;
 
 
-public class CargarFragment extends Fragment {
+public class CargarFragment extends Fragment implements View.OnClickListener {
 
     private TextView txtSlots;
     private Bitmap myBitmap;
     private ImageButton primerSlot;
+    private ImageButton segundoSlot;
+    private ImageButton tercerSlot;
+    private ImageButton cuartoSlot;
+    private ImageButton quintoSlot;
+    private ImageButton sextoSlot;
     private String vn_name = "";
     private String file_path="";
     public static String file_name="";
@@ -58,6 +63,18 @@ public class CargarFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         primerSlot = (ImageButton) view.findViewById(R.id.cargarImgBtn1);
+
+        segundoSlot = (ImageButton) view.findViewById(R.id.cargarImgBtn2);
+        segundoSlot.setOnClickListener(this);
+        tercerSlot = (ImageButton) view.findViewById(R.id.cargarImgBtn3);
+        tercerSlot.setOnClickListener(this);
+        cuartoSlot = (ImageButton) view.findViewById(R.id.cargarImgBtn4);
+        cuartoSlot.setOnClickListener(this);
+        quintoSlot = (ImageButton) view.findViewById(R.id.cargarImgBtn5);
+        quintoSlot.setOnClickListener(this);
+        sextoSlot = (ImageButton) view.findViewById(R.id.cargarImgBtn6);
+        sextoSlot.setOnClickListener(this);
+
         cargarDatos();
 
         primerSlot.setOnClickListener(new View.OnClickListener() {
@@ -114,4 +131,24 @@ public class CargarFragment extends Fragment {
 
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.cargarImgBtn1:
+                break;
+            case R.id.cargarImgBtn2:
+                break;
+            case R.id.cargarImgBtn3:
+                break;
+            case R.id.cargarImgBtn4:
+                break;
+            case R.id.cargarImgBtn5:
+                break;
+            case R.id.cargarImgBtn6:
+                break;
+            default:
+                break;
+        }
+
+    }
 }

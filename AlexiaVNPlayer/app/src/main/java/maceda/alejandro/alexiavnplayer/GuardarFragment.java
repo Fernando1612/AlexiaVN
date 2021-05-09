@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
@@ -26,11 +29,16 @@ import java.io.File;
 import java.util.ConcurrentModificationException;
 
 
-public class GuardarFragment extends Fragment {
+public class GuardarFragment extends Fragment implements View.OnClickListener {
 
     Context context;
     private TextView txtSlots;
     private ImageButton primerSlot;
+    private ImageButton segundoSlot;
+    private ImageButton tercerSlot;
+    private ImageButton cuartoSlot;
+    private ImageButton quintoSlot;
+    private ImageButton sextoSlot;
     private Bitmap myBitmap;
     private int imagen;
     private static final String IMAGE_RESOURCE = "image-resource";
@@ -62,24 +70,27 @@ public class GuardarFragment extends Fragment {
         txtSlots.setText("Slots");
 
         primerSlot = (ImageButton) view.findViewById(R.id.imgGuardar1);
+        primerSlot.setOnClickListener(this);
+        segundoSlot = (ImageButton) view.findViewById(R.id.imgGuardar2);
+        segundoSlot.setOnClickListener(this);
+        tercerSlot = (ImageButton) view.findViewById(R.id.imgGuardar3);
+        tercerSlot.setOnClickListener(this);
+        cuartoSlot = (ImageButton) view.findViewById(R.id.imgGuardar4);
+        cuartoSlot.setOnClickListener(this);
+        quintoSlot = (ImageButton) view.findViewById(R.id.imgGuardar5);
+        quintoSlot.setOnClickListener(this);
+        sextoSlot = (ImageButton) view.findViewById(R.id.imgGuardar6);
+        sextoSlot.setOnClickListener(this);
+
 
         cargarPreferencias();
 
         primerSlot.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
-                String imgPath = file_image;
-                File imgFile = new File(imgPath);
-                if (imgFile.exists()){
-                    myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-                    primerSlot.setImageBitmap(myBitmap);
-                    guardarPreferencias();
-                    //eliminarPreferencias();
-                    Toast.makeText(v.getContext(),"Guardando...",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(v.getContext(),"Archivo no encontrado...",Toast.LENGTH_SHORT).show();
-                }
+                ponerImagen(file_path);
+                guardarPreferencias();
+                //eliminarPreferencias();
             }
         });
 
@@ -92,6 +103,7 @@ public class GuardarFragment extends Fragment {
         cargarDatos();
 
     }
+
 
     private void cargarPreferencias(){
         SharedPreferences preferences = this.getActivity().getSharedPreferences("saveVN",Context.MODE_PRIVATE);
@@ -123,10 +135,12 @@ public class GuardarFragment extends Fragment {
         editor.commit();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     private void eliminarPreferencias(){
         SharedPreferences preferences = this.getActivity().getSharedPreferences("saveVN",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear().apply();
+        editor.commit();
     }
 
     private void cargarDatos(){
@@ -143,4 +157,36 @@ public class GuardarFragment extends Fragment {
         textSize = intent.getIntExtra("textSize", 16);
     }
 
+    private void ponerImagen(String file_image){
+        String imgPath = file_image;
+        File imgFile = new File(imgPath);
+        if (imgFile.exists()){
+            myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            primerSlot.setImageBitmap(myBitmap);
+            Toast.makeText(getContext(),"Guardando...",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getContext(),"Archivo no encontrado...",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.imgGuardar1:
+                break;
+            case R.id.imgGuardar2:
+                break;
+            case R.id.imgGuardar3:
+                break;
+            case R.id.imgGuardar4:
+                break;
+            case R.id.imgGuardar5:
+                break;
+            case R.id.imgGuardar6:
+                break;
+            default:
+                break;
+        }
+    }
 }
