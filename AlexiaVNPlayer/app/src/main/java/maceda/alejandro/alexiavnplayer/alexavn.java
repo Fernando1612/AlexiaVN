@@ -295,7 +295,7 @@ public class alexavn extends Activity {
         v.vibrate(time);
     }
 
-    public class Typewriter extends android.support.v7.widget.AppCompatTextView {
+    public class Typewriter extends androidx.appcompat.widget.AppCompatTextView {
         private CharSequence mText;
         private int mIndex;
         private long mDelay = 100; //500ms delay
