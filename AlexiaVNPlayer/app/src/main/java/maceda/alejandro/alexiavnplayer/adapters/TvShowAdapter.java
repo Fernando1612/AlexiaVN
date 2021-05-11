@@ -1,4 +1,4 @@
-package maceda.alejandro.alexiavnplayer;
+package maceda.alejandro.alexiavnplayer.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,13 +14,15 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.List;
 
+import maceda.alejandro.alexiavnplayer.database.DatabaseConnector;
+import maceda.alejandro.alexiavnplayer.R;
+import maceda.alejandro.alexiavnplayer.TvShow;
 
 
 public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder> {
@@ -30,21 +32,20 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
     RecyclerView mRecyclerView;
 
 
-    public TvShowAdapter(List<TvShow>TvShowList)
-    {
+    public TvShowAdapter(List<TvShow> TvShowList) {
         this.TvShowList = TvShowList;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         context = parent.getContext();
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, @SuppressLint("RecyclerView") final int  position) {
+    public void onBindViewHolder(final ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         final TvShow tvShow = TvShowList.get(position);
 
         holder.textTvShow.setText(tvShow.getTvshow());
@@ -54,9 +55,9 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
         holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  Toast.makeText(context,"The position is:"+position + "NAME: " + holder.textTvShow.getText(),Toast.LENGTH_SHORT).show();
-            //    Toast.makeText(context, "Opening ... " + holder.textTvShow.getText(),Toast.LENGTH_SHORT).show();
-                start_alexavn( tvShow.getTvshow_id() , tvShow.getTvshow(), tvShow.getTvshow_path(), tvShow.getTvshow_file(), tvShow.getTvshow_savefile(), tvShow.getTvshow_line(), tvShow.getTvshow_username(), tvShow.getImgTvshow());
+                //  Toast.makeText(context,"The position is:"+position + "NAME: " + holder.textTvShow.getText(),Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(context, "Opening ... " + holder.textTvShow.getText(),Toast.LENGTH_SHORT).show();
+                start_alexavn(tvShow.getTvshow_id(), tvShow.getTvshow(), tvShow.getTvshow_path(), tvShow.getTvshow_file(), tvShow.getTvshow_savefile(), tvShow.getTvshow_line(), tvShow.getTvshow_username(), tvShow.getImgTvshow());
 
             }
         });
@@ -65,7 +66,7 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
             @Override
             public void onClick(View view) {
                 //  Toast.makeText(context,"The position is:"+position + "NAME: " + holder.textTvShow.getText(),Toast.LENGTH_SHORT).show();
-               // Toast.makeText(context, "Deleting ... " + holder.textTvShow.getText(),Toast.LENGTH_SHORT).show();
+                // Toast.makeText(context, "Deleting ... " + holder.textTvShow.getText(),Toast.LENGTH_SHORT).show();
                 deleteRecent(tvShow.getTvshow_id(), position);
 
             }
@@ -79,23 +80,22 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
         return TvShowList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder
-    {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgTvShow;
         TextView textTvShow;
         ImageButton clean_recent;
         CardView cv;
 
-        public ViewHolder(View itemView)
-        {
+        public ViewHolder(View itemView) {
             super(itemView);
-            imgTvShow = (ImageView)itemView.findViewById(R.id.imgTvshow);
-            textTvShow = (TextView)itemView.findViewById(R.id.textTvshow);
+            imgTvShow = (ImageView) itemView.findViewById(R.id.imgTvshow);
+            textTvShow = (TextView) itemView.findViewById(R.id.textTvshow);
             clean_recent = (ImageButton) itemView.findViewById(R.id.clean_recent_ib);
-            cv = (CardView)itemView.findViewById(R.id.cv);
+            cv = (CardView) itemView.findViewById(R.id.cv);
         }
 
     }
+
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
@@ -106,7 +106,7 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
     private void start_alexavn(long m_recent_id, String m_name, String m_path, String m_filename, String m_savefile, int m_line, String m_username, String m_image) {
         //show_toast(textSize);
 
-        Intent alexavn = new Intent (context, alexavn.class);
+        Intent alexavn = new Intent(context, maceda.alejandro.alexiavnplayer.alexavn.class);
         alexavn.putExtra("vnname", m_name);
         alexavn.putExtra("path", m_path);
         alexavn.putExtra("file", m_filename);
@@ -123,8 +123,8 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
         context.startActivity(alexavn);
 
     }
-    private void deleteRecent( final long rowID, final int pos)
-    {
+
+    private void deleteRecent(final long rowID, final int pos) {
 
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
 
@@ -132,26 +132,21 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
         alert.setMessage(R.string.confirmMessage);
 
         alert.setPositiveButton(R.string.delete_btn,
-                new DialogInterface.OnClickListener()
-                {
-                    public void onClick(DialogInterface dialog, int button)
-                    {
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int button) {
                         final DatabaseConnector dbConnector =
                                 new DatabaseConnector(context);
 
                         AsyncTask<Long, Object, Object> deleteTask =
-                                new AsyncTask<Long, Object, Object>()
-                                {
+                                new AsyncTask<Long, Object, Object>() {
                                     @Override
-                                    protected Object doInBackground(Long... params)
-                                    {
-                                         dbConnector.deleteRecent(params[0]);
+                                    protected Object doInBackground(Long... params) {
+                                        dbConnector.deleteRecent(params[0]);
                                         return null;
                                     }
 
                                     @Override
-                                    protected void onPostExecute(Object result)
-                                    {
+                                    protected void onPostExecute(Object result) {
 
                                         TvShowList.remove(pos);
                                         mRecyclerView.getAdapter().notifyDataSetChanged();
@@ -159,11 +154,10 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
                                         dbConnector.close();
 
 
-
                                     }
                                 };
 
-                        deleteTask.execute(new Long[] { rowID });
+                        deleteTask.execute(new Long[]{rowID});
                     }
                 }
         );

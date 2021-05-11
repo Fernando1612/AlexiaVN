@@ -1,23 +1,23 @@
-package maceda.alejandro.alexiavnplayer;
+package maceda.alejandro.alexiavnplayer.preferences;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.FileReader;
+import maceda.alejandro.alexiavnplayer.preferences.fragments.AcercaDeFragment;
+import maceda.alejandro.alexiavnplayer.preferences.fragments.CargarFragment;
+import maceda.alejandro.alexiavnplayer.preferences.fragments.GaleriaFragment;
+import maceda.alejandro.alexiavnplayer.preferences.fragments.GuardarFragment;
+import maceda.alejandro.alexiavnplayer.preferences.fragments.InfoFragment;
+import maceda.alejandro.alexiavnplayer.MainActivity;
+import maceda.alejandro.alexiavnplayer.R;
 
 
-public class Preferences extends FragmentActivity{
+public class Preferences extends FragmentActivity {
 
     private int mmthemeId;
     private int themeId;
@@ -31,14 +31,14 @@ public class Preferences extends FragmentActivity{
     AcercaDeFragment fragmentAcercaDe;
 
     private String vn_name = "";
-    private String file_path="";
-    public static String file_name="";
-    private String savefile="";
+    private String file_path = "";
+    public static String file_name = "";
+    private String savefile = "";
     private String file_image = "";
     private int line = 0;
     public static long recent_id = 0;
-    private String username="";
-    private int startpage=0;
+    private String username = "";
+    private int startpage = 0;
     private int textSize;
 
 
@@ -62,7 +62,7 @@ public class Preferences extends FragmentActivity{
             }
         });
 
-       traerVariables();
+        traerVariables();
 
 
         //Instaciar todos los fragments
@@ -73,7 +73,7 @@ public class Preferences extends FragmentActivity{
         fragmentAcercaDe = new AcercaDeFragment();
 
         //Fragment de inicio
-        getSupportFragmentManager().beginTransaction().add(R.id.contenedor_fragment,fragmentGuardar).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.contenedor_fragment, fragmentGuardar).commit();
         textoArriba = (TextView) findViewById(R.id.guardar);
         textoArriba.setText("Guardar");
     }
@@ -85,28 +85,28 @@ public class Preferences extends FragmentActivity{
 
     public void guardar(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.contenedor_fragment,fragmentGuardar);
+        transaction.replace(R.id.contenedor_fragment, fragmentGuardar);
         textoArriba.setText("Guardar");
         transaction.commit();
     }
 
     public void cargar(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.contenedor_fragment,fragmentCargar);
+        transaction.replace(R.id.contenedor_fragment, fragmentCargar);
         textoArriba.setText("Cargar");
         transaction.commit();
     }
 
     public void galeria(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.contenedor_fragment,fragmentGaleria);
+        transaction.replace(R.id.contenedor_fragment, fragmentGaleria);
         textoArriba.setText("Galeria");
         transaction.commit();
     }
 
     public void preferencias(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.contenedor_fragment,fragmentInformacion);
+        transaction.replace(R.id.contenedor_fragment, fragmentInformacion);
         textoArriba.setText("Preferencias");
         transaction.commit();
     }
@@ -120,15 +120,15 @@ public class Preferences extends FragmentActivity{
 
     public void acercaDe(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.contenedor_fragment,fragmentAcercaDe);
+        transaction.replace(R.id.contenedor_fragment, fragmentAcercaDe);
         textoArriba.setText("Acerca de");
         transaction.commit();
 
     }
 
-    private void getPreferencesTheme () {
+    private void getPreferencesTheme() {
 
-        if (mmthemeId == android.R.style.Theme_Holo ) {
+        if (mmthemeId == android.R.style.Theme_Holo) {
             themeId = android.R.style.Theme_Holo_NoActionBar_Fullscreen;
         }
         if (mmthemeId == android.R.style.Theme_Holo_Light_DarkActionBar) {
@@ -145,7 +145,7 @@ public class Preferences extends FragmentActivity{
         }
     }
 
-    private void traerVariables(){
+    private void traerVariables() {
         Intent intent = getIntent();
         vn_name = intent.getStringExtra("vnname");
         file_path = intent.getStringExtra("path");

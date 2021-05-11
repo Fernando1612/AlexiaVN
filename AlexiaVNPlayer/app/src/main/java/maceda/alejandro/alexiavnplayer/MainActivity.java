@@ -3,7 +3,6 @@ package maceda.alejandro.alexiavnplayer;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -13,9 +12,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -39,6 +36,11 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import maceda.alejandro.alexiavnplayer.adapters.TvShowAdapter;
+import maceda.alejandro.alexiavnplayer.database.DatabaseConnector;
+import maceda.alejandro.alexiavnplayer.settings.Ayuda;
+import maceda.alejandro.alexiavnplayer.settings.Settings;
+
 public class MainActivity extends AppCompatActivity implements Settings.FinalizaCuadroDialogo {
     RecyclerView recyclerView;
     TvShowAdapter tvShowAdapter;
@@ -47,11 +49,11 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
     private String curPath;
     private TextView tv_no_recent;
     private String nombre;
-    private  String sexo;
+    private String sexo;
     Context contexto;
 
-    public static final String[] TvShows= {"Breaking Bad","Rick and Morty", "FRIENDS","Sherlock","Stranger Things"};
-    public static final int[] TvShowImgs = {R.drawable.b5cm , R.drawable.ecchi , R.drawable.folder , R.drawable.folder , R.drawable.folder};
+    public static final String[] TvShows = {"Breaking Bad", "Rick and Morty", "FRIENDS", "Sherlock", "Stranger Things"};
+    public static final int[] TvShowImgs = {R.drawable.b5cm, R.drawable.ecchi, R.drawable.folder, R.drawable.folder, R.drawable.folder};
 
     DatabaseConnector dbConnector;
     public HashMap<String, String> map;
@@ -69,8 +71,8 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Snackbar.make(view, "Abriendo VN...", Snackbar.LENGTH_LONG)
-                 //       .setAction("Action", null).show();
+                // Snackbar.make(view, "Abriendo VN...", Snackbar.LENGTH_LONG)
+                //       .setAction("Action", null).show();
                 if (isStoragePermissionGranted()) {
                     createcarpet();
                     open_alexavn();
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         */
         tvShowAdapter = new TvShowAdapter(tvShows);
 
-        recyclerView = (RecyclerView)findViewById(R.id.TvShows);
+        recyclerView = (RecyclerView) findViewById(R.id.TvShows);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(tvShowAdapter);
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
 
     private void cargarPreferencias() {
         SharedPreferences preferences = getSharedPreferences("Informacion", contexto.MODE_PRIVATE);
-        String nombre = preferences.getString("nombre","No existe la informacion");
+        String nombre = preferences.getString("nombre", "No existe la informacion");
         String sexo = preferences.getString("sexo", "No existe la informacion");
     }
 
@@ -131,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_settings:
-                new Settings(contexto,MainActivity.this);
+                new Settings(contexto, MainActivity.this);
                 return true;
             case R.id.action_ayuda:
                 new Ayuda(contexto);
@@ -143,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
     }
 
     private void open_alexavn() {
-        Intent chooseFile = new Intent (getApplicationContext(), FileChooser.class);
+        Intent chooseFile = new Intent(getApplicationContext(), FileChooser.class);
         chooseFile.putExtra("option", 1);
         startActivityForResult(chooseFile, 1);
     }
@@ -181,45 +183,41 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                     String[] sarray = new String[3];
 
                     //	file.setText(curPath+curFileName);
-                    boolean succes=false;
-                    try
-                    {
+                    boolean succes = false;
+                    try {
 
 
-
-                        FileReader file = new FileReader(curPath+curFileName);
+                        FileReader file = new FileReader(curPath + curFileName);
                         BufferedReader buffer = new BufferedReader(file);
-                        String line ="";
+                        String line = "";
                         if ((line = buffer.readLine()) != null) {
                             sarray = line.split(",", -1);
                             //			loadProducts(sarray[0], sarray[1], sarray[2],  sarray[3], sarray[4], sarray[5]);
                         }
                         buffer.close();
-                    }
-                    catch (Exception ex) {
+                    } catch (Exception ex) {
                         show_toast("Open failed");
-                        succes=false;
+                        succes = false;
 
-                    }
-                    finally{
+                    } finally {
                         if (succes) {
                             show_toast("Loading");
 
                         }
 
                     }
-                    saveRecent(sarray[0], curPath, sarray[1], sarray[2]  );
+                    saveRecent(sarray[0], curPath, sarray[1], sarray[2]);
                     //start_alexavn(curPath, curFileName);
-                   // tvShows.clear();
+                    // tvShows.clear();
                     //new GetRecents().execute();
 
                 }
                 break;
         }
     }
+
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
 
 
@@ -229,22 +227,16 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
     }
 
 
-
-    public void saveRecent(final String m_name, final String m_curPath, final String m_curFileName, final String mImage)
-    {
+    public void saveRecent(final String m_name, final String m_curPath, final String m_curFileName, final String mImage) {
         dbConnector = new DatabaseConnector(this);
 
         dbConnector.open();
 
 
         AsyncTask<Object, Object, Cursor> insertTask =
-                new AsyncTask<Object, Object, Cursor>()
-                {
+                new AsyncTask<Object, Object, Cursor>() {
                     @Override
-                    protected Cursor doInBackground(Object... params)
-                    {
-
-
+                    protected Cursor doInBackground(Object... params) {
 
 
                         //" (_id integer primary key autoincrement, name, path, file, line, image)
@@ -257,8 +249,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                     }
 
                     @Override
-                    protected void onPostExecute(Cursor result)
-                    {
+                    protected void onPostExecute(Cursor result) {
 
                         dbConnector.close();
 
@@ -270,7 +261,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
 
     @Override
     public void ResultadoCuadroDialogo(String nombre, String sexo) {
-        guardarPreferencias(nombre,sexo);
+        guardarPreferencias(nombre, sexo);
     }
 
     private void guardarPreferencias(String nombre, String sexo) {
@@ -285,22 +276,18 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         editor.commit();
     }
 
-    public class GetRecents extends AsyncTask<String, String, Cursor>
-    {
+    public class GetRecents extends AsyncTask<String, String, Cursor> {
         DatabaseConnector dbConnector_products = new DatabaseConnector(MainActivity.this);
 
 
-
         @Override
-        protected Cursor doInBackground(String... params)
-        {
+        protected Cursor doInBackground(String... params) {
             dbConnector_products.open();
             return dbConnector_products.getAllRecents();
         }
 
         @Override
-        protected void onPostExecute(Cursor result)
-        {
+        protected void onPostExecute(Cursor result) {
 
             if (result.moveToFirst()) {
                 tv_no_recent.setVisibility(View.GONE);
@@ -325,8 +312,6 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                     tvShow.setTvshow_username(result.getString(7));
 
 
-
-
                     tvShows.add(tvShow);
 
                 } while (result.moveToNext());
@@ -340,7 +325,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         }
     }
 
-    private void show_toast (String s) {
+    private void show_toast(String s) {
         Toast.makeText(this, s,
                 Toast.LENGTH_SHORT).show();
     }
@@ -350,22 +335,20 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         File f = new File("/sdcard/alexavn/");
         f.getAbsolutePath();
 
-        if(f.mkdirs()) {
+        if (f.mkdirs()) {
             //se ha creado bien
             //string.replace(" ", "\\ ");
             show_toast("Carpeta creada");
             unzip();
 
-        }
-        else {
+        } else {
             if (f.exists()) {
                 File fzip = new File("/sdcard/alexavn/UltimoDinosaurio");
-                if(!fzip.exists()) {
+                if (!fzip.exists()) {
                     unzip();
                 }
                 //	((MainActivity)getActivity()).show_toast("La carpeta ya existe");
-            }
-            else
+            } else
                 show_toast("Carpeta o Sd no encontrada, dar permisos de almacenamiento");
         }
     }
@@ -382,12 +365,10 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         new UnZipTask().execute("", "");
     }
 
-    private class UnZipTask extends AsyncTask<String, Void, Boolean>
-    {
+    private class UnZipTask extends AsyncTask<String, Void, Boolean> {
         @SuppressWarnings("rawtypes")
         @Override
-        protected Boolean doInBackground(String... params)
-        {
+        protected Boolean doInBackground(String... params) {
             AssetManager assetManager = getAssets();
 
             //String filePath = params[0];
@@ -429,9 +410,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                 }
 
                 zis.close();
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 return false;
             }
 
@@ -439,8 +418,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         }
 
         @Override
-        protected void onPostExecute(Boolean result)
-        {
+        protected void onPostExecute(Boolean result) {
             pd.dismiss();
 
         }

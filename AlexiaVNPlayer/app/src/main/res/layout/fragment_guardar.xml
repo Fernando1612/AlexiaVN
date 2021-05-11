@@ -4,96 +4,150 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GuardarFragment">
+    tools:context=".preferences.fragments.GuardarFragment">
 
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/imgGuardar1"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="16dp"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+        <ImageButton
+            android:id="@+id/imgGuardar1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
 
-    <ImageButton
-        android:id="@+id/imgGuardar2"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toEndOf="@+id/imgGuardar1"
-        app:layout_constraintTop_toTopOf="@+id/imgGuardar1"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+        <ImageButton
+            android:id="@+id/imgGuardar2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/imgGuardar1"
+            app:layout_constraintTop_toTopOf="@+id/imgGuardar1"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
 
-    <ImageButton
-        android:id="@+id/imgGuardar3"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toEndOf="@+id/imgGuardar5"
-        app:layout_constraintTop_toTopOf="@+id/imgGuardar5"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+        <ImageButton
+            android:id="@+id/imgGuardar6"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/imgGuardar5"
+            app:layout_constraintTop_toTopOf="@+id/imgGuardar5"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
 
-    <ImageButton
-        android:id="@+id/imgGuardar4"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="16dp"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="@+id/imgGuardar1"
-        app:layout_constraintTop_toBottomOf="@+id/imgGuardar1"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+        <ImageButton
+            android:id="@+id/imgGuardar4"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="32dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="@+id/imgGuardar1"
+            app:layout_constraintTop_toBottomOf="@+id/imgGuardar1"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
 
-    <ImageButton
-        android:id="@+id/imgGuardar5"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toEndOf="@+id/imgGuardar4"
-        app:layout_constraintTop_toTopOf="@+id/imgGuardar4"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+        <ImageButton
+            android:id="@+id/imgGuardar5"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/imgGuardar4"
+            app:layout_constraintTop_toTopOf="@+id/imgGuardar4"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
 
-    <ImageButton
-        android:id="@+id/imgGuardar6"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toEndOf="@+id/imgGuardar2"
-        app:layout_constraintTop_toTopOf="@+id/imgGuardar2"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+        <ImageButton
+            android:id="@+id/imgGuardar3"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/imgGuardar2"
+            app:layout_constraintTop_toTopOf="@+id/imgGuardar2"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
 
-    <TextView
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textColor="#61b1a9"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.151" />
+        <TextView
+            android:id="@+id/editTextTextPersonName5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:textColor="#61b1a9"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.463"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.113" />
+
+        <TextView
+            android:id="@+id/dateGuardar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/imgGuardar1"
+            app:layout_constraintStart_toStartOf="@+id/imgGuardar1"
+            app:layout_constraintTop_toBottomOf="@+id/imgGuardar1" />
+
+        <TextView
+            android:id="@+id/dateGuardar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/imgGuardar2"
+            app:layout_constraintStart_toStartOf="@+id/imgGuardar2"
+            app:layout_constraintTop_toBottomOf="@+id/imgGuardar2" />
+
+        <TextView
+            android:id="@+id/dateGuardar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/imgGuardar3"
+            app:layout_constraintStart_toStartOf="@+id/imgGuardar3"
+            app:layout_constraintTop_toBottomOf="@+id/imgGuardar3" />
+
+        <TextView
+            android:id="@+id/dateGuardar4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/imgGuardar4"
+            app:layout_constraintStart_toStartOf="@+id/imgGuardar4"
+            app:layout_constraintTop_toBottomOf="@+id/imgGuardar4" />
+
+        <TextView
+            android:id="@+id/dateGuardar5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/imgGuardar5"
+            app:layout_constraintStart_toStartOf="@+id/imgGuardar5"
+            app:layout_constraintTop_toBottomOf="@+id/imgGuardar5" />
+
+        <TextView
+            android:id="@+id/dateGuardar6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/imgGuardar6"
+            app:layout_constraintStart_toStartOf="@+id/imgGuardar6"
+            app:layout_constraintTop_toBottomOf="@+id/imgGuardar6" />
 
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>

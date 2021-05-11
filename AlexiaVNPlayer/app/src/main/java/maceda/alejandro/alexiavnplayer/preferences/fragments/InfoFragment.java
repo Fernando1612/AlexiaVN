@@ -1,4 +1,4 @@
-package maceda.alejandro.alexiavnplayer;
+package maceda.alejandro.alexiavnplayer.preferences.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,18 +7,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
+
+import maceda.alejandro.alexiavnplayer.R;
 
 
 public class InfoFragment extends Fragment {
 
 
-
     public InfoFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -32,7 +31,7 @@ public class InfoFragment extends Fragment {
 
         SharedPreferences preferences = this.getActivity().getSharedPreferences("Informacion", Context.MODE_PRIVATE);
 
-        String nombre = preferences.getString("nombre","No existe la informacion");
+        String nombre = preferences.getString("nombre", "No existe la informacion");
         String sexo = preferences.getString("sexo", "No existe la informacion");
 
         Nombre.setText(nombre);

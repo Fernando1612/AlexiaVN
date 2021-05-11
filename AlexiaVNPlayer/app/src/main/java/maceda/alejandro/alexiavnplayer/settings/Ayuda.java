@@ -1,10 +1,12 @@
-package maceda.alejandro.alexiavnplayer;
+package maceda.alejandro.alexiavnplayer.settings;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+
+import maceda.alejandro.alexiavnplayer.R;
 
 public class Ayuda {
 
@@ -14,7 +16,7 @@ public class Ayuda {
         dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogo.setContentView(R.layout.ayuda_view);
 
-        Button ok = (Button)dialogo.findViewById(R.id.btnOk);
+        Button ok = (Button) dialogo.findViewById(R.id.btnOk);
 
         ok.setOnClickListener(new View.OnClickListener() {
             @Override

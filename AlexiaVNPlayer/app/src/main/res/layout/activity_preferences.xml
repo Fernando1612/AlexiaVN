@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Preferences">
+    tools:context=".preferences.Preferences">
 
 
     <TextView
@@ -15,10 +15,10 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:textColor="#61b1a9"
         android:gravity="left"
         android:inputType="textPersonName"
         android:text="Name"
+        android:textColor="#61b1a9"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
