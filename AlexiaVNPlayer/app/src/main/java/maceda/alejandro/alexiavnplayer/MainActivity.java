@@ -1,6 +1,7 @@
 package maceda.alejandro.alexiavnplayer;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +22,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +32,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -137,6 +141,9 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                 return true;
             case R.id.action_ayuda:
                 new Ayuda(contexto);
+                return true;
+            case R.id.action_project:
+                crearAlerta();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -347,7 +354,6 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                 if (!fzip.exists()) {
                     unzip();
                 }
-                //	((MainActivity)getActivity()).show_toast("La carpeta ya existe");
             } else
                 show_toast("Carpeta o Sd no encontrada, dar permisos de almacenamiento");
         }
@@ -357,7 +363,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
     {
         pd = new ProgressDialog(MainActivity.this);
         pd.setTitle("Extrayendo archivos");
-        pd.setMessage("Please Wait...");
+        pd.setMessage("Por favor espere...");
         //	pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         pd.setCancelable(false);
         pd.setIndeterminate(true);
@@ -424,4 +430,80 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         }
     }
 
+    private void crearAlerta(){
+
+        final View customAlertDialog = getLayoutInflater().inflate(R.layout.custom_alertdialog, null);
+        final AlertDialog dialog = new AlertDialog.Builder(this)
+                .setView(customAlertDialog)
+                .setTitle("Crear proyecto en blanco")
+                .setPositiveButton("Aceptar", null)
+                .setNegativeButton("Cancelar", null)
+                .show();
+        Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        positiveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = customAlertDialog.findViewById(R.id.edit_text);
+                String nombreProyecto = editText.getText().toString().trim();
+                if (nombreProyecto.isEmpty()){
+                    show_toast("Ingresa un nombre por favor");
+                }else{
+                    if (isStoragePermissionGranted()) {
+                        show_toast("Creando proyecto");
+                        crearProyecto(nombreProyecto);
+                        dialog.dismiss();
+                    } else {
+                        show_toast("No hay permisos otorgados");
+                    }
+                }
+            }
+        });
+        Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+        negativeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    private void crearProyecto(String nombreProyecto){
+        File nombre = new File("/sdcard/alexavn/"+nombreProyecto);
+        File BGM = new File("/sdcard/alexavn/"+nombreProyecto+"/BGM");
+        File Chars = new File("/sdcard/alexavn/"+nombreProyecto+"/Chars");
+        File FX = new File("/sdcard/alexavn/"+nombreProyecto+"/FX");
+        File Menu = new File("/sdcard/alexavn/"+nombreProyecto+"/Menu");
+        File Scenes = new File("/sdcard/alexavn/"+nombreProyecto+"/Scenes");
+        File Scripts = new File("/sdcard/alexavn/"+nombreProyecto+"/Scripts");
+        File Textbox = new File("/sdcard/alexavn/"+nombreProyecto+"/Textbox");
+        File Video = new File("/sdcard/alexavn/"+nombreProyecto+"/Video");
+        File Voices = new File("/sdcard/alexavn/"+nombreProyecto+"/Voices");
+        File config = new File("/sdcard/alexavn/"+nombreProyecto+"/config.avn");
+        if (nombre.exists()){
+            show_toast("El proyecto ya existe");
+        }else{
+            nombre.mkdirs();
+            if(nombre.isDirectory()){
+                BGM.mkdirs();
+                Chars.mkdirs();
+                FX.mkdirs();
+                Menu.mkdirs();
+                Scenes.mkdirs();
+                Scripts.mkdirs();
+                Textbox.mkdirs();
+                Video.mkdirs();
+                Voices.mkdirs();
+                if(!config.exists()){
+                    try {
+                        config.createNewFile();
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+                show_toast("Proyecto creado");
+            }else {
+                show_toast("Error al crear el poyecto");
+            }
+        }
+    }
 }

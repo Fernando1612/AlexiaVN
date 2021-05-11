@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Comandos disponibles:"
+                android:text="Tutoriales"
                 android:textColor="#61b1a9"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -82,11 +82,11 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/tutorialP1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="[TEXT]+Texto que desea mostrar"
+                android:text="Tutorial alexia novel player: primera parte"
                 app:layout_constraintBottom_toTopOf="@+id/btnOk"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -95,29 +95,46 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/tutorialP2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="[BGM]+looping+nombreCancion.pm3"
+                android:text="Tutorial alexia novel player: segunda parte"
                 app:layout_constraintBottom_toTopOf="@+id/btnOk"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/textView17"
-                app:layout_constraintTop_toBottomOf="@+id/textView17"
+                app:layout_constraintStart_toStartOf="@+id/tutorialP1"
+                app:layout_constraintTop_toBottomOf="@+id/tutorialP1"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="[IMG]+nombreImagen.jpg"
+                android:layout_marginTop="16dp"
+                android:text="Documentación"
+                android:textColor="#61b1a9"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/btnOk"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/textView18"
-                app:layout_constraintTop_toBottomOf="@+id/textView18"
+                app:layout_constraintStart_toStartOf="@+id/tutorialP2"
+                app:layout_constraintTop_toBottomOf="@+id/tutorialP2"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/documentacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Documentación de Alexia visual novel"
+                app:layout_constraintBottom_toTopOf="@+id/btnOk"
+                app:layout_constraintEnd_toEndOf="@+id/textView19"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView19"
+                app:layout_constraintTop_toBottomOf="@+id/textView19"
                 app:layout_constraintVertical_bias="0.0" />
 
 

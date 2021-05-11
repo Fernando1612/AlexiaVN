@@ -76,7 +76,8 @@ public class FileChooser extends ListActivity {
                         if (option == 1) {
                             String filename = ff.getName();
                             //if (filename.contains("txt"))
-                            if (filename.contains("ale"))
+                            //Archivo inicial con extension .avn
+                            if (filename.contains("avn"))
                                 fls.add(new Item(ff.getName(), ff.length() + " Byte", date_modify, ff.getAbsolutePath(), "file_icon"));
                         } else if (option == 2) {
                             String filename = ff.getName();

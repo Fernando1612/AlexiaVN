@@ -95,6 +95,7 @@
 
         <TextView
             android:id="@+id/dateGuardar1"
+            android:textSize="10sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -104,6 +105,7 @@
 
         <TextView
             android:id="@+id/dateGuardar2"
+            android:textSize="10sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -113,6 +115,7 @@
 
         <TextView
             android:id="@+id/dateGuardar3"
+            android:textSize="10sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -122,6 +125,7 @@
 
         <TextView
             android:id="@+id/dateGuardar4"
+            android:textSize="10sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -131,6 +135,7 @@
 
         <TextView
             android:id="@+id/dateGuardar5"
+            android:textSize="10sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -140,6 +145,7 @@
 
         <TextView
             android:id="@+id/dateGuardar6"
+            android:textSize="10sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"

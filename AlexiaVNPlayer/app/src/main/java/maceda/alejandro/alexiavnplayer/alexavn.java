@@ -1114,7 +1114,12 @@ public class alexavn extends Activity {
                     load_image(recuperarImageFondo);
                 }
                 if (!recuperarImageBox.equals("")) {
-                    load_image_textbox(recuperarImageBox);
+
+                    if(recuperarImageBox.equals("No hay datos...")){
+                        tv.setBackgroundColor(Color.parseColor("#80000000"));
+                    }else{
+                        load_image_textbox(recuperarImageBox);
+                    }
                 }
                 if (!recuperarImageChar.equals("")) {
                     load_image_center(recuperarImageChar);

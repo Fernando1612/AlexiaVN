@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Alexia VN Player</string>
-    <string name="action_settings">Configuracion</string>
+    <string name="action_settings">Configuración</string>
+    <string name="action_project">Crear proyecto en blanco</string>-
     <string name="confirmTitle">¿Estas seguro?</string>
     <string name="confirmMessage">Se quitara de la lista</string>
 
