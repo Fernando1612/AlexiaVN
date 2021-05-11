@@ -6,8 +6,8 @@ Alexia visual novel es un motor de novelas visuales con el cual puedes crear y r
 
 Crear un proyecto en blanco desde la aplicación dirigiendote al menú de la parte superior y presionando el botón **Crear proyecto en blanco**, Finalmente, ponle un nombre a tu proyecto y presiona aceptar.
 
-<video width="350" height="500" autoplay>
-    <source src="resources/quickstart1.mp4" type="video/mp4">
-</video>
+
+https://user-images.githubusercontent.com/42527034/117889857-d8062380-b279-11eb-8cae-cca802bd1ade.mp4
+
 
 Después, con ayuda de una navegador de archivos (recomendamos ASTRO) o conectando tu celular a una computadora dirígete a la carpeta **alexavn**
