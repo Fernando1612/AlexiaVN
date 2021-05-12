@@ -339,7 +339,9 @@ La instrucción detiene todo por un período de timpo, necesita un parámetro el
 
 -----------------------------PONER IMAGEN----------------------------------
 
+### Nota
 
+Para los colores se recomienda utilizar la página https://www.color-hex.com/.
 
 
 
