@@ -1407,7 +1407,7 @@ public class alexavn extends Activity {
             character_tv.setText("");
             next_line(null);
 
-        } else if (separated[0].equals("[CHOISESIMAGE]")) {
+        } else if (separated[0].equals("[CHOICESIMAGE]")) {
             saveLineaExacta = line;
             ll.removeAllViews();
             ll.setGravity(Gravity.CENTER);
@@ -1556,7 +1556,7 @@ public class alexavn extends Activity {
             next_line(null);
         } else if (separated[0].equals("[CLEARNAMECHAR]")) {
             next_line(null);
-        } else if (separated[0].equals("[CHOISESIMAGE]")) {
+        } else if (separated[0].equals("[CHOICESIMAGE]")) {
             next_line(null);
         } else if (separated[0].equals("[NPLAYER]")) {
             next_line(null);
