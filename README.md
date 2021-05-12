@@ -235,7 +235,7 @@ La instrucción termina la novela visual y muesta el mensaje "FIN DE LA NOVELA",
 
 La instrucción hace el efecto de "aparecer", puede ser una imagen o un video, no lleva ningún parámetro.
 
-------------------------------PONER IMAGEN-----------------------------------------------
+![fedein](https://user-images.githubusercontent.com/42527034/118017074-c8d7b200-b31b-11eb-8c79-cc700be1ee9a.png)
 
 ### [FADEOUT]
 
@@ -313,53 +313,61 @@ La instrucción coloca una imagen en la parte de abajo de la pantalla, la cual s
 
 ![textbox](https://user-images.githubusercontent.com/42527034/118015557-076c6d00-b31a-11eb-8c06-77532804fb1d.png)
 
+![Screenshot_2021-05-12-12-07-46-097_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118016283-d7719980-b31a-11eb-9503-46814294d4af.jpg)
+
 ### [TEXTBOXCLEAR]
 
 La intrucción quita la imagen de la caja de texto, no necesita ningún parámetro.
 
-------------------------------PONER IMAGEN--------------------------------------------
+![textboxclear](https://user-images.githubusercontent.com/42527034/118016350-e7897900-b31a-11eb-83c3-76085be46537.png)
 
 ### [TEXTBOXTRANS]
 
 La instrucción coloca una sombra en la parte inferior de la pantalla, la cual ayuda a que el texto se pueda vizualizar mejor, no necesita ningun parámetro.
 
-------------------------------PONER IMAGEN--------------------------------------------
+![textboxtrans](https://user-images.githubusercontent.com/42527034/118016375-ee17f080-b31a-11eb-9912-f0939aebd5c5.png)
+
+![Screenshot_2021-05-12-12-10-19-574_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118016508-19024480-b31b-11eb-9977-75472a4e9721.jpg)
 
 ### [TEXTCOLOR]
 
 La instrucción permite cambiar el color del texto que se va mostrando en pantalla, necesita un parámetro, el color que sea desea color en hexadecimal.
 
---------------------------------PONER IMAGE-----------------------------------------------
+![textcolor](https://user-images.githubusercontent.com/42527034/118016535-21f31600-b31b-11eb-8f23-f6d430603e81.png)
+
+![Screenshot_2021-05-12-12-12-10-230_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118016701-549d0e80-b31b-11eb-9cae-dbd4a3376d39.jpg)
 
 ### [TITLE]
 
 La instrucción coloca un texto de pantalla completa haciendo un efecto similar al de **[FADEIN]**, necesita 3 parámetros, el texto que se desea mostrar, el nombre del color del texto en inglés o hexadecimal y el tamaño del texto.
 
----------------------------------PONER IMAGEN----------------------------------------
+![title](https://user-images.githubusercontent.com/42527034/118016717-5b2b8600-b31b-11eb-9280-5f95ed648f88.png)
+
+![Screenshot_2021-05-12-12-13-53-844_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118016872-8d3ce800-b31b-11eb-8ba7-32438ab62b64.jpg)
 
 ### [TITLEOFF]
 
 La instrucción quita el título de la pantalla haciendo un efecto similar al de **[FADEOUT]**, no necesita ningún parámetro.
 
------------------------------------------PONER IMAGEN-------------------------------
+![titleoff](https://user-images.githubusercontent.com/42527034/118016894-93cb5f80-b31b-11eb-9e0b-cc51211eae1a.png)
 
 ### [VIBRATE]
 
 La instrucción hace vibrar el teléfono por un período de tiempo, necesita un parámetro, el cual es el tiempo de vibrado en milisegundo. Por ejemplo 1000 significa que el teléfono va a vibrar por 1 segundo.
 
------------------------------------PONER IMAGEN------------------------------
+![vibrate](https://user-images.githubusercontent.com/42527034/118016916-9928aa00-b31b-11eb-81e0-f5a76a21efd1.png)
 
 ### [VIDEO]
 
 La instrucción reproduce un video, necesita un parámetro el cual es el nombre del video que se encuentra en la carpeta **Video**.
 
-----------------------------------------PONER IMAGEN------------------------------------------------
+![video](https://user-images.githubusercontent.com/42527034/118016950-a2b21200-b31b-11eb-9329-415ae962cd2d.png)
 
 ### [WAIT]
 
 La instrucción detiene todo por un período de timpo, necesita un parámetro el cual es es tiempo que desea detener la novel y se expresa en milisegundos. Por ejemplo 2000 milisegundos lo detiene 2 segundos.
 
------------------------------PONER IMAGEN----------------------------------
+![wait](https://user-images.githubusercontent.com/42527034/118016962-a6459900-b31b-11eb-973d-17d961a4293a.png)
 
 
 
