@@ -465,9 +465,9 @@ Finalmente, se deben seguir los pasas descritos en **Cargar proyectos**.
 
 ## Contribuir código 
 
- Puede enviar pull request al[repositorio de github](https://github.com/Fernando1612/AlexiaVN).
+ Puede enviar pull request al [repositorio de github](https://github.com/Fernando1612/AlexiaVN).
 
 ## Licencia
 
-Este proyecto está bajo la licencia GNU General Public License v2 o posterior. Puede leerlo en línea en ([v2](http://www.gnu.org/licenses/gpl-2.0.html) or [v3](http://www.gnu.org/licenses/gpl.html)).
+Este proyecto está bajo la licencia GNU General Public License v2 o posterior. Puede leerlo en línea en ([v2](http://www.gnu.org/licenses/gpl-2.0.html) o [v3](http://www.gnu.org/licenses/gpl.html)).
 
