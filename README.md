@@ -375,5 +375,65 @@ Para los colores se recomienda utilizar la página https://www.color-hex.com/.
 
 
 
+## Opciones
+
+
+
+### Creación de nuevos proyectos
+
+Para la creación de nuevos proyectos debes presionar el botón del menú despegable que se encuentra en la parte superior derecha, despues hacer clic en **Crear proyecto en blanco**, finalmente, debes ingresar el nombre de tu proyecto y presionar "ACEPTAR", esto creará una carpeta con el nombre de tu proyecto y dentro de ella se encontraran las carpetas y archivos necesarios para crear tu novela, exceptuando la foto de portada. La visualización de todas las carpertas y archivos puedes hacerla utilizando cualquier navegador de archivos ya sea desde tu celular o utilizando una computadora.
+
+#### Nota
+
+Si intentas crear un proyecto con el mismo nombre se mostrará un mensaje en pantalla diciendo que el proyecto ya existe y no se volveran a crear las carpetas.
+
+### Cargar proyectos
+
+Para cargar un proyecto debes presionar el botón de **archivos** que se encuentra en la parte inferior derecha de la pantalla, una vez hecho esto se mostrará una pantalla con los archivos de tu dispositivo debes buscar la carpeta **alexavn** y entrar en ella, despues debes buscar la carpeta con el proyecto que deseas cargar y entrar en ella, una vez ahí debes buscar el archivo **config.avn** y hace clic en él, se abrira de nuevo la pantalla principal mostrando el título y la portada del proyecto.
+
+### Eliminación de proyectos
+
+Cuando un proyecto este cargado a un lado del título se encontrárá el botón de **Eliminar** de color azul, al presionarlo se mostrará un mensaje diciendo **¿Estas seguro? se quitara de la lista**, al presionar **ELIMINAR** el proyecto se eliminará de la pantalla principal pero aun se encontran guardadas sus carpetas en nuestro dispositvo.
+
+### Configuración
+
+En la configuración se deben asignar el nombre del jugador de la novela y su sexo, este nombre se puede utilizar en la instrucción **[NPLAYER]** para un mejor desarrollo de la novela visual, para guaradar estos datos solo debes llenarlos y presionar el botón **guardar**. La información se puede vizualizar en la pantalla **Preferensias**.
+
+### Ayuda
+
+En la ventana de **Ayuda** se mostrarán enlances a tutoriales para utlizar la aplicación asi como un enlace a está documentación, para ir a cualquiera de ellos solo debes dar clic en el enlace y se abrirá tu navegador web.
+
+### Guardar partida 
+
+Para guardar la partida existen 2 opciones, puede ser desde la pantalla donde se esta reproduciendo la novela, en la parte superior derecha se encuentra el botón de **guardar** con la imagen de un disquete, al presionarlo se mostrará un mensaje diciendo **Guardando**. Los datos se guardaran en el primer slot de la pantalla **Guardar**. La segunda opción es presionar el botón de **opciones** que se encuentra aun lado del botón **guardar** y tiene una imagen de engrane, se abrirá la pantalla **Guardar** y puede guardar el avance de su partida en cualquiera de los slots, al guardar los datos se mostrará la imagen de portada de la novela y la fecha en la que se guardaron los datos.
+
+### Cargar partida
+
+Para cargar una partida primero debe abrir una novela despues de esto en la pantalla donde se esta reproduciendo la novela debe hacer clic en el botón **opciones** que se encuentra en la parte superior derecha y tiene una imagen de engrane, despues de presionar el botón **Cargar** y se vera la pantalla con los slots de sus partidas guardadas, finalmente, presione el slot con la partida que desea cargar y comenzará la reproducción de la novela desde el punto guardado.
+
+### Galeria
+
+En la ventana **Galeria** se mostrarán todas las imágenes guardadas en la carpeta **Scenes** en forma de carrousel, para cambiar de imagen solo debe deslizar su dedo a la derecha o a la izquierda.
+
+### Preferencias
+
+En la ventana **Preferencias** se mostrará la información guardada en **Configuración**.
+
+### Acerca de
+
+En la ventana **Acerca de** se mostrará la información de los programadores.
+
+#### Nota
+
+Si tiene alguna duda, sugerencia o comentario no dude en enviar un correo a cualquiera de los programadores, el proyecto es open source para la comunidad, si puede ayudar para mejorarlo no dude en contactarnos.
+
+### Compartir tu proyecto
+
+Para compartir tu proyecto con cualquier persona lo primero que debes hacer el comprimir la carpeta de tu proyecto en una archivo con estensión **.zip**, despues enviar este archivo a la persona que quieras puede ser por mensaje, correo electrónico, bluetooth, etc.
+
+La otra presona deberá tener la aplicación de Alexia VN instalada en su celular. Una vez que la persona reciba el archivo comprimido **.zip**, deberá colocar dicho archivo dentro de la carperta **alexvn** y despues descomprimirlo (Esto se puede hacer desde una computadora o utilizando una aplicación como **ASTRO** para celular), cuando el archivo este descomprimido aparecera una carpeta con el nombre del proyecto.
+
+Finalmente, se deben seguir los pasas descritos en **Cargar proyectos**.
+
 
 
