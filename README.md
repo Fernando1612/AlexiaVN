@@ -383,6 +383,8 @@ Para los colores se recomienda utilizar la página https://www.color-hex.com/.
 
 Para la creación de nuevos proyectos debes presionar el botón del menú despegable que se encuentra en la parte superior derecha, despues hacer clic en **Crear proyecto en blanco**, finalmente, debes ingresar el nombre de tu proyecto y presionar "ACEPTAR", esto creará una carpeta con el nombre de tu proyecto y dentro de ella se encontraran las carpetas y archivos necesarios para crear tu novela, exceptuando la foto de portada. La visualización de todas las carpertas y archivos puedes hacerla utilizando cualquier navegador de archivos ya sea desde tu celular o utilizando una computadora.
 
+https://user-images.githubusercontent.com/42527034/118031036-af3e6680-b32b-11eb-939a-9a4f309ef0fa.mp4
+
 #### Nota
 
 Si intentas crear un proyecto con el mismo nombre se mostrará un mensaje en pantalla diciendo que el proyecto ya existe y no se volveran a crear las carpetas.
@@ -391,13 +393,19 @@ Si intentas crear un proyecto con el mismo nombre se mostrará un mensaje en pan
 
 Para cargar un proyecto debes presionar el botón de **archivos** que se encuentra en la parte inferior derecha de la pantalla, una vez hecho esto se mostrará una pantalla con los archivos de tu dispositivo debes buscar la carpeta **alexavn** y entrar en ella, despues debes buscar la carpeta con el proyecto que deseas cargar y entrar en ella, una vez ahí debes buscar el archivo **config.avn** y hace clic en él, se abrira de nuevo la pantalla principal mostrando el título y la portada del proyecto.
 
+https://user-images.githubusercontent.com/42527034/118031239-f3ca0200-b32b-11eb-8748-bcf7e179b135.mp4
+
 ### Eliminación de proyectos
 
 Cuando un proyecto este cargado a un lado del título se encontrárá el botón de **Eliminar** de color azul, al presionarlo se mostrará un mensaje diciendo **¿Estas seguro? se quitara de la lista**, al presionar **ELIMINAR** el proyecto se eliminará de la pantalla principal pero aun se encontran guardadas sus carpetas en nuestro dispositvo.
 
+https://user-images.githubusercontent.com/42527034/118031380-14925780-b32c-11eb-926a-1eb369d34e20.mp4
+
 ### Configuración
 
-En la configuración se deben asignar el nombre del jugador de la novela y su sexo, este nombre se puede utilizar en la instrucción **[NPLAYER]** para un mejor desarrollo de la novela visual, para guaradar estos datos solo debes llenarlos y presionar el botón **guardar**. La información se puede vizualizar en la pantalla **Preferensias**.
+En la configuración se deben asignar el nombre del jugador de la novela y su sexo, este nombre se puede utilizar en la instrucción **[NPLAYER]** para un mejor desarrollo de la novela visual, para guaradar estos datos solo debes llenarlos y presionar el botón **guardar**. La información se puede vizualizar en la pantalla **Preferencias**.
+
+https://user-images.githubusercontent.com/42527034/118031515-3d1a5180-b32c-11eb-8187-bc2089f56eb9.mp4
 
 ### Ayuda
 
@@ -407,21 +415,37 @@ En la ventana de **Ayuda** se mostrarán enlances a tutoriales para utlizar la a
 
 Para guardar la partida existen 2 opciones, puede ser desde la pantalla donde se esta reproduciendo la novela, en la parte superior derecha se encuentra el botón de **guardar** con la imagen de un disquete, al presionarlo se mostrará un mensaje diciendo **Guardando**. Los datos se guardaran en el primer slot de la pantalla **Guardar**. La segunda opción es presionar el botón de **opciones** que se encuentra aun lado del botón **guardar** y tiene una imagen de engrane, se abrirá la pantalla **Guardar** y puede guardar el avance de su partida en cualquiera de los slots, al guardar los datos se mostrará la imagen de portada de la novela y la fecha en la que se guardaron los datos.
 
+https://user-images.githubusercontent.com/42527034/118032504-5ff93580-b32d-11eb-9a3e-edc5fd55796a.mp4
+
 ### Cargar partida
 
 Para cargar una partida primero debe abrir una novela despues de esto en la pantalla donde se esta reproduciendo la novela debe hacer clic en el botón **opciones** que se encuentra en la parte superior derecha y tiene una imagen de engrane, despues de presionar el botón **Cargar** y se vera la pantalla con los slots de sus partidas guardadas, finalmente, presione el slot con la partida que desea cargar y comenzará la reproducción de la novela desde el punto guardado.
+
+https://user-images.githubusercontent.com/42527034/118032562-6f787e80-b32d-11eb-90b0-6e5d6f8eddee.mp4
+
+### Eliminar partida
+
+Para eliminarlos los datos guardados de una partida, debes dirigirte a la ventana de **Guardar** y mantener presionado el slot de la partida que deseas borrar, despues te aparecera un mensaje preguntando si **¿Deseas borrar los datos?** presiona **Si** para eliminar los datos.
+
+https://user-images.githubusercontent.com/42527034/118032643-84eda880-b32d-11eb-8e36-bdcb5f3a20f4.mp4
 
 ### Galeria
 
 En la ventana **Galeria** se mostrarán todas las imágenes guardadas en la carpeta **Scenes** en forma de carrousel, para cambiar de imagen solo debe deslizar su dedo a la derecha o a la izquierda.
 
+https://user-images.githubusercontent.com/42527034/118033960-072a9c80-b32f-11eb-92d4-89c029f7624a.mp4
+
 ### Preferencias
 
 En la ventana **Preferencias** se mostrará la información guardada en **Configuración**.
 
+![Screenshot_2021-05-12-14-23-30-190_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118032813-b1a1c000-b32d-11eb-8b4d-f1bde5569d01.jpg)
+
 ### Acerca de
 
 En la ventana **Acerca de** se mostrará la información de los programadores.
+
+![Screenshot_2021-05-12-14-23-39-349_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118032838-b8303780-b32d-11eb-98b5-299fd5af9c7e.jpg)
 
 #### Nota
 
@@ -431,7 +455,11 @@ Si tiene alguna duda, sugerencia o comentario no dude en enviar un correo a cual
 
 Para compartir tu proyecto con cualquier persona lo primero que debes hacer el comprimir la carpeta de tu proyecto en una archivo con estensión **.zip**, despues enviar este archivo a la persona que quieras puede ser por mensaje, correo electrónico, bluetooth, etc.
 
+https://user-images.githubusercontent.com/42527034/118033104-09402b80-b32e-11eb-9e31-c33c6fac256d.mp4
+
 La otra presona deberá tener la aplicación de Alexia VN instalada en su celular. Una vez que la persona reciba el archivo comprimido **.zip**, deberá colocar dicho archivo dentro de la carperta **alexvn** y despues descomprimirlo (Esto se puede hacer desde una computadora o utilizando una aplicación como **ASTRO** para celular), cuando el archivo este descomprimido aparecera una carpeta con el nombre del proyecto.
+
+https://user-images.githubusercontent.com/42527034/118033455-7784ee00-b32e-11eb-9167-10548d2addbc.mp4
 
 Finalmente, se deben seguir los pasas descritos en **Cargar proyectos**.
 
