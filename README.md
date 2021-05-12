@@ -187,7 +187,7 @@ Para poner más de una decisión se debe agregar el simbolo **+** al final y pon
 
 Se puede seguir asi hasta n decisiones agregando sus respectivos parametros (Todo debe ser en una sola línea). La instrucción **[CHOISES]** y **[CHOISESIMAGE]** deben ir al final de cada archivo de la carpeta **Scripts** para continuar la historia, exceptuando el ultimo archivo de la novela. 
 
-### [CHOISESIMAGE]                  +++++++++++++++ cambiar el nombre :v
+### [CHOISESIMAGE]
 
 La instrucción es muy similar a **[CHOICES]**, la diferencias es que en lugar de usar botones ahora se pueden utilizar imágenes, como minímo se necesitan 5 parámetros:
 
@@ -249,7 +249,7 @@ La instrucción permite colocar un texto con el nombre de un personaje, y se mos
 
 --------------------------------PONER IMAGEN-------------------------------
 
-### [NPLAYER] agregar show toast cuando se guarden las configuraciones
+### [NPLAYER]
 
 La instrucción permite utilizar la información guardada en **Configuración** la cual es el nombre del jugador de la novela, pondra un texto seguido del nombre del jugador y opcionalmente se puede agregar mas texto.
 
