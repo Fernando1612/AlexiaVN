@@ -71,7 +71,7 @@ y 2 archivos:
 
 La estructura de las carpetas tiene la siguiente forma.
 
-----------------------------------------------------------------PONER  IMAGEN--------------------------------------------------------------
+![carpetasAlexia](https://user-images.githubusercontent.com/42527034/118007843-249d3d80-b312-11eb-8c45-9c146020c2ad.png)
 
 ### BGM
 
@@ -141,31 +141,35 @@ Acontinuación se describirán las intrucciones con las que cuenta Alexia VN, es
 
 La instrucción reproduce sonidos, debe llevar dos parámetros, la palabra **looping** y el nombre del archivo que se desea reproducir ubicado en la carpeta **BGM**.
 
--------------------------------------PONER IMAGEN---------------------------------------------------
+![bgm](https://user-images.githubusercontent.com/42527034/118008011-4dbdce00-b312-11eb-83e4-76c3de04c12b.png)
 
 ### [CHAR]
 
 La instrucción coloca la imagen de un personaje, necesita dos parámetros, la posición las cuales pueden ser **left** para ponerlo a la izquierda de la pantalla, **center** para ponerlo al centro de la pantalla o **right** para ponerlo a la derecha de la pantalla y el nombre de la imagen del personaje que se encuentra en la carpeta **Chars**.
 
---------------------PONER IMAGEN-----------------------------------------------
+![char](https://user-images.githubusercontent.com/42527034/118008085-5d3d1700-b312-11eb-8f57-c5df62bbd427.png)
+
+![Screenshot_2021-05-11-23-07-53-108_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118008554-ccb30680-b312-11eb-9f08-6c14435a53d6.jpg)
 
 ### [CHARBIG] 
 
 La instrucción es similar a **[CHAR]** la diferencia es que **[CHARBIG]** hace la imagen del personaje mas grande, tiene los mismos parametros que char.
 
--------------------------PONER IMAGEN----------------------------------------
+![charbig](https://user-images.githubusercontent.com/42527034/118008594-d6d50500-b312-11eb-9ee0-56e62ce67b75.png)
+
+![Screenshot_2021-05-11-23-07-18-180_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118008634-e2283080-b312-11eb-9557-07542647ed0e.jpg)
 
 ### [CHARBIGCLEAR]
 
 La instrucción es similar a **[CHARBIGCLEAR]**, quita la imagen grande del personaje y necesita el mismo parametro que **[CHARCLEAR]**.
 
---------------------------------PONER  IMAGEN--------------------------------
+![charbigclear](https://user-images.githubusercontent.com/42527034/118008721-f66c2d80-b312-11eb-9726-8158c2166b38.png)
 
 ### [CHARCLEAR]
 
 La instrucción quita la imagen del personaje, necesita solo un parámeto el cual es la posición donde esta el personaje, para quitarlo.
 
-----------------------------PONER IMAGEN---------------------------
+![charclear](https://user-images.githubusercontent.com/42527034/118008739-fd933b80-b312-11eb-96d6-e263b72b3220.png)
 
 ### [CHOICES]
 
@@ -179,15 +183,19 @@ La instrucción sirve para colocar botones en los cuales puedes poner decisiones
 6. Color de fondo del botón en hexadecimal
 7. Color del texto en hexadecimal
 
-------------------------------PONER IMAGEN-------------------------------------------------------------------
+![choices1](https://user-images.githubusercontent.com/42527034/118009513-b9546b00-b313-11eb-9055-8191e34dbef0.png)
+
+![Screenshot_2021-05-12-11-22-16-551_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118010430-a726fc80-b314-11eb-95e3-9278c56226a8.jpg)
 
 Para poner más de una decisión se debe agregar el simbolo **+** al final y poner los parámetros del 2 al 7 de nuevo, como se muestra en el ejemplo. 
 
--------------------------PONER IMAGEN-------------------------------------------------
+![choices2](https://user-images.githubusercontent.com/42527034/118009566-c2453c80-b313-11eb-893a-071a5a640948.png)
+
+![Screenshot_2021-05-12-11-23-58-810_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118010457-aee6a100-b314-11eb-9627-6bed16c63014.jpg)
 
 Se puede seguir asi hasta n decisiones agregando sus respectivos parametros (Todo debe ser en una sola línea). La instrucción **[CHOISES]** y **[CHOISESIMAGE]** deben ir al final de cada archivo de la carpeta **Scripts** para continuar la historia, exceptuando el ultimo archivo de la novela. 
 
-### [CHOISESIMAGE]
+### [CHOICESIMAGE]
 
 La instrucción es muy similar a **[CHOICES]**, la diferencias es que en lugar de usar botones ahora se pueden utilizar imágenes, como minímo se necesitan 5 parámetros:
 
@@ -197,13 +205,17 @@ La instrucción es muy similar a **[CHOICES]**, la diferencias es que en lugar d
 4. Ancho de la imagen en pixeles
 5. Alto de la imagen en pixeles
 
----------------------------------------------PONER IMAGEN-----------------------------------------------
+![choicesimages1](https://user-images.githubusercontent.com/42527034/118013994-5addbb80-b318-11eb-9c8f-724bf7462d5b.png)
+
+![Screenshot_2021-05-12-11-47-59-574_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118014089-721ca900-b318-11eb-919a-d9c1be16bd30.jpg)
 
 Se recomienda utilizar imágenes con extensión **.png** y sin fondo.
 
 Para poner más de una decisión se debe agregar el simbolo **+** al final y poner los parámetros del 2 al 5 de nuevo, como se muestra en el ejemplo. 
 
------------------------------------PONER IMAGEN---------------------------------------------------------------
+![choicesimage2](https://user-images.githubusercontent.com/42527034/118014123-7a74e400-b318-11eb-929f-70a237bf38f9.png)
+
+![Screenshot_2021-05-12-11-49-46-610_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118014148-806ac500-b318-11eb-9702-a8873bb63718.jpg)
 
 Se puede seguir asi hasta n decisiones agregando sus respectivos parametros (Todo debe ser en una sola línea). La instrucción **[CHOISES]** y **[CHOISESIMAGE]** deben ir al final de cada archivo de la carpeta **Scripts** para continuar la historia, exceptuando el ultimo archivo de la novela. 
 
@@ -211,133 +223,151 @@ Se puede seguir asi hasta n decisiones agregando sus respectivos parametros (Tod
 
 La instrucción quita el texto con el nombre de un personaje de la pantalla, no necesita ningún parámetro.
 
------------------------PONER IMAGEN--------------------------------------------
+![clearnamechar](https://user-images.githubusercontent.com/42527034/118014245-9a0c0c80-b318-11eb-9707-437dc49a47d9.png)
 
 ### [END]
 
 La instrucción termina la novela visual y muesta el mensaje "FIN DE LA NOVELA", no necesita ningún parámetro.
 
-------------------------------------PONER IMAGE---------------------------------------------
+![end](https://user-images.githubusercontent.com/42527034/118014257-9ed0c080-b318-11eb-8957-e3ea10670ff1.png)
 
 ### [FADEIN]
 
 La instrucción hace el efecto de "aparecer", puede ser una imagen o un video, no lleva ningún parámetro.
 
-------------------------------PONER IMAGEN-----------------------------------------------
+![fedein](https://user-images.githubusercontent.com/42527034/118017074-c8d7b200-b31b-11eb-8c79-cc700be1ee9a.png)
 
 ### [FADEOUT]
 
 La instrucción hace el efecto de "desaparecer", puede ser una imagen o un video, no lleva ningún parámetro.
 
--------------------------------------PONER IMAGEN---------------------------------------
+![fadeout](https://user-images.githubusercontent.com/42527034/118014350-bc9e2580-b318-11eb-946e-6eb5d38399db.png)
 
 ### [IGNORE]
 
 La instrucción permite hacer anotaciones dentro del archivo, que no aparecerán en la novela, necesita un parámetro, la anotación que deseas poner en el archivo.
 
-----------------------PONER IMAGEN----------------------------------------------
+![ignore](https://user-images.githubusercontent.com/42527034/118014371-c2940680-b318-11eb-9946-903abceff1ff.png)
 
 ### [IMG]
 
 La instrucción coloca una imagen como fondo, necesita un parámetro el cual es el nombre de la imagen que se encuentra en la carpeta **Scenes**.
 
----------------------------PONER IMAGEN-----------------------------------------------------------
+![img](https://user-images.githubusercontent.com/42527034/118014391-c889e780-b318-11eb-9900-46d1a704c4e7.png)
+
+![Screenshot_2021-05-11-23-08-13-035_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118014438-d93a5d80-b318-11eb-8989-141d40b330f6.jpg)
 
 ### [NAMECHAR]
 
 La instrucción permite colocar un texto con el nombre de un personaje, y se mostrara en la parte inferior de la pantalla, necesita cuatro parámetros, el nombre del personaje, el tamaño del texto, el color del texto y el color de fondo (Si no se desea color de fondo este parámetro puede quedar vacio).
 
---------------------------------PONER IMAGEN-------------------------------
+![namechar](https://user-images.githubusercontent.com/42527034/118014511-ec4d2d80-b318-11eb-8584-e6aaaea29b5b.png)
+
+![Screenshot_2021-05-12-11-57-01-394_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118014848-42ba6c00-b319-11eb-995c-e6ce8c9ae0c3.jpg)
+
+![Screenshot_2021-05-12-11-57-18-156_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118014868-4817b680-b319-11eb-8a89-36b55639f7b5.jpg)
 
 ### [NPLAYER]
 
 La instrucción permite utilizar la información guardada en **Configuración** la cual es el nombre del jugador de la novela, pondra un texto seguido del nombre del jugador y opcionalmente se puede agregar mas texto.
 
-------------------------------poner imagen-------------------------------------------------
+![nplayer](https://user-images.githubusercontent.com/42527034/118014909-54037880-b319-11eb-979c-e8defe400359.png)
+
+![Screenshot_2021-05-12-11-59-21-676_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118015105-8ad98e80-b319-11eb-89e6-eeaddc720d09.jpg)
 
 ### [SHOWBG]
 
 La instrucción muestra una imagen o título en pantalla completa, no necesita ningún parámetro, se recomienda utilizar esta instrucción despues de la instrucción **[TITLE]**.
 
------------------------PONER IMAGEN---------------------------------------------
+![showbg](https://user-images.githubusercontent.com/42527034/118015165-9a58d780-b319-11eb-82e2-3d721104c462.png)
 
 ### [SOUNDFX]
 
 La instrucción reproduce los efectos de sonido guardados en la carpeta **FX**, se necesitan 2 parámetros los cuales son la palabra **now** y el nombre del archivo del efecto.
 
---------------------------------PONER IMAGEN-----------------------------------------
+![soundfx](https://user-images.githubusercontent.com/42527034/118015185-a04eb880-b319-11eb-8754-b93ff2f75f7b.png)
 
 ### [STOPSOUND]
 
 La instrucción detiene cualquier sonido que se este reproduciendo, no necesita parámetros.
 
-----------------------------------PONER IMAGEN---------------------------------------------------------
+![stopsound](https://user-images.githubusercontent.com/42527034/118015206-a5136c80-b319-11eb-8a0e-6417dd0dae45.png)
 
 ### [STOPVIDEO]
 
 La instrucción quita la reproducción del video, no necesita ningún parámetro.
 
---------------------------------------PONER IMGEN--------------------------------
+![stopvideo](https://user-images.githubusercontent.com/42527034/118015232-aa70b700-b319-11eb-8b47-ba6adaa845b9.png)
 
 ### [TEXT]
 
 La instrucción coloca el texto en la parte inferior de la pantalla con un efecto, solo necesita un parámetro, el texto que desea que aparezca.
 
----------------------------------PONER IMAGEN----------------------------------------------
+![text](https://user-images.githubusercontent.com/42527034/118015268-b492b580-b319-11eb-809c-576af7cb024e.png)
+
+![Screenshot_2021-05-12-12-01-42-313_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118015415-dbe98280-b319-11eb-8070-44e72460d28a.jpg)
 
 ### [TEXTBOX]
 
 La instrucción coloca una imagen en la parte de abajo de la pantalla, la cual sirve para que el texto se vea mejor, necesita un parámetro, el nombre de la imagen que se encuentra en la carpeta **Textbox**.
 
---------------------------------------PONER IMAGEN-----------------------------------------
+![textbox](https://user-images.githubusercontent.com/42527034/118015557-076c6d00-b31a-11eb-8c06-77532804fb1d.png)
+
+![Screenshot_2021-05-12-12-07-46-097_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118016283-d7719980-b31a-11eb-9503-46814294d4af.jpg)
 
 ### [TEXTBOXCLEAR]
 
 La intrucción quita la imagen de la caja de texto, no necesita ningún parámetro.
 
-------------------------------PONER IMAGEN--------------------------------------------
+![textboxclear](https://user-images.githubusercontent.com/42527034/118016350-e7897900-b31a-11eb-83c3-76085be46537.png)
 
 ### [TEXTBOXTRANS]
 
 La instrucción coloca una sombra en la parte inferior de la pantalla, la cual ayuda a que el texto se pueda vizualizar mejor, no necesita ningun parámetro.
 
-------------------------------PONER IMAGEN--------------------------------------------
+![textboxtrans](https://user-images.githubusercontent.com/42527034/118016375-ee17f080-b31a-11eb-9912-f0939aebd5c5.png)
+
+![Screenshot_2021-05-12-12-10-19-574_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118016508-19024480-b31b-11eb-9977-75472a4e9721.jpg)
 
 ### [TEXTCOLOR]
 
 La instrucción permite cambiar el color del texto que se va mostrando en pantalla, necesita un parámetro, el color que sea desea color en hexadecimal.
 
---------------------------------PONER IMAGE-----------------------------------------------
+![textcolor](https://user-images.githubusercontent.com/42527034/118016535-21f31600-b31b-11eb-8f23-f6d430603e81.png)
+
+![Screenshot_2021-05-12-12-12-10-230_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118016701-549d0e80-b31b-11eb-9cae-dbd4a3376d39.jpg)
 
 ### [TITLE]
 
 La instrucción coloca un texto de pantalla completa haciendo un efecto similar al de **[FADEIN]**, necesita 3 parámetros, el texto que se desea mostrar, el nombre del color del texto en inglés o hexadecimal y el tamaño del texto.
 
----------------------------------PONER IMAGEN----------------------------------------
+![title](https://user-images.githubusercontent.com/42527034/118016717-5b2b8600-b31b-11eb-9280-5f95ed648f88.png)
+
+![Screenshot_2021-05-12-12-13-53-844_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118016872-8d3ce800-b31b-11eb-8ba7-32438ab62b64.jpg)
 
 ### [TITLEOFF]
 
 La instrucción quita el título de la pantalla haciendo un efecto similar al de **[FADEOUT]**, no necesita ningún parámetro.
 
------------------------------------------PONER IMAGEN-------------------------------
+![titleoff](https://user-images.githubusercontent.com/42527034/118016894-93cb5f80-b31b-11eb-9e0b-cc51211eae1a.png)
 
 ### [VIBRATE]
 
 La instrucción hace vibrar el teléfono por un período de tiempo, necesita un parámetro, el cual es el tiempo de vibrado en milisegundo. Por ejemplo 1000 significa que el teléfono va a vibrar por 1 segundo.
 
------------------------------------PONER IMAGEN------------------------------
+![vibrate](https://user-images.githubusercontent.com/42527034/118016916-9928aa00-b31b-11eb-81e0-f5a76a21efd1.png)
 
 ### [VIDEO]
 
 La instrucción reproduce un video, necesita un parámetro el cual es el nombre del video que se encuentra en la carpeta **Video**.
 
-----------------------------------------PONER IMAGEN------------------------------------------------
+![video](https://user-images.githubusercontent.com/42527034/118016950-a2b21200-b31b-11eb-9329-415ae962cd2d.png)
 
 ### [WAIT]
 
 La instrucción detiene todo por un período de timpo, necesita un parámetro el cual es es tiempo que desea detener la novel y se expresa en milisegundos. Por ejemplo 2000 milisegundos lo detiene 2 segundos.
 
------------------------------PONER IMAGEN----------------------------------
+![wait](https://user-images.githubusercontent.com/42527034/118016962-a6459900-b31b-11eb-973d-17d961a4293a.png)
 
 ### Nota
 
