@@ -311,7 +311,7 @@ La instrucción coloca el texto en la parte inferior de la pantalla con un efect
 
 La instrucción coloca una imagen en la parte de abajo de la pantalla, la cual sirve para que el texto se vea mejor, necesita un parámetro, el nombre de la imagen que se encuentra en la carpeta **Textbox**.
 
---------------------------------------PONER IMAGEN-----------------------------------------
+![textbox](https://user-images.githubusercontent.com/42527034/118015557-076c6d00-b31a-11eb-8c06-77532804fb1d.png)
 
 ### [TEXTBOXCLEAR]
 
