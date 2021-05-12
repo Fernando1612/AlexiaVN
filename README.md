@@ -71,7 +71,7 @@ y 2 archivos:
 
 La estructura de las carpetas tiene la siguiente forma.
 
-----------------------------------------------------------------PONER  IMAGEN--------------------------------------------------------------
+![carpetasAlexia](https://user-images.githubusercontent.com/42527034/118007843-249d3d80-b312-11eb-8c45-9c146020c2ad.png)
 
 ### BGM
 
@@ -141,31 +141,35 @@ Acontinuación se describirán las intrucciones con las que cuenta Alexia VN, es
 
 La instrucción reproduce sonidos, debe llevar dos parámetros, la palabra **looping** y el nombre del archivo que se desea reproducir ubicado en la carpeta **BGM**.
 
--------------------------------------PONER IMAGEN---------------------------------------------------
+![bgm](https://user-images.githubusercontent.com/42527034/118008011-4dbdce00-b312-11eb-83e4-76c3de04c12b.png)
 
 ### [CHAR]
 
 La instrucción coloca la imagen de un personaje, necesita dos parámetros, la posición las cuales pueden ser **left** para ponerlo a la izquierda de la pantalla, **center** para ponerlo al centro de la pantalla o **right** para ponerlo a la derecha de la pantalla y el nombre de la imagen del personaje que se encuentra en la carpeta **Chars**.
 
---------------------PONER IMAGEN-----------------------------------------------
+![char](https://user-images.githubusercontent.com/42527034/118008085-5d3d1700-b312-11eb-8f57-c5df62bbd427.png)
+
+![Screenshot_2021-05-11-23-07-53-108_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118008554-ccb30680-b312-11eb-9f08-6c14435a53d6.jpg)
 
 ### [CHARBIG] 
 
 La instrucción es similar a **[CHAR]** la diferencia es que **[CHARBIG]** hace la imagen del personaje mas grande, tiene los mismos parametros que char.
 
--------------------------PONER IMAGEN----------------------------------------
+![charbig](https://user-images.githubusercontent.com/42527034/118008594-d6d50500-b312-11eb-9ee0-56e62ce67b75.png)
+
+![Screenshot_2021-05-11-23-07-18-180_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118008634-e2283080-b312-11eb-9557-07542647ed0e.jpg)
 
 ### [CHARBIGCLEAR]
 
 La instrucción es similar a **[CHARBIGCLEAR]**, quita la imagen grande del personaje y necesita el mismo parametro que **[CHARCLEAR]**.
 
---------------------------------PONER  IMAGEN--------------------------------
+![charbigclear](https://user-images.githubusercontent.com/42527034/118008721-f66c2d80-b312-11eb-9726-8158c2166b38.png)
 
 ### [CHARCLEAR]
 
 La instrucción quita la imagen del personaje, necesita solo un parámeto el cual es la posición donde esta el personaje, para quitarlo.
 
-----------------------------PONER IMAGEN---------------------------
+![charclear](https://user-images.githubusercontent.com/42527034/118008739-fd933b80-b312-11eb-96d6-e263b72b3220.png)
 
 ### [CHOICES]
 
@@ -179,15 +183,19 @@ La instrucción sirve para colocar botones en los cuales puedes poner decisiones
 6. Color de fondo del botón en hexadecimal
 7. Color del texto en hexadecimal
 
-------------------------------PONER IMAGEN-------------------------------------------------------------------
+![choices1](https://user-images.githubusercontent.com/42527034/118009513-b9546b00-b313-11eb-9055-8191e34dbef0.png)
+
+![Screenshot_2021-05-12-11-22-16-551_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118010430-a726fc80-b314-11eb-95e3-9278c56226a8.jpg)
 
 Para poner más de una decisión se debe agregar el simbolo **+** al final y poner los parámetros del 2 al 7 de nuevo, como se muestra en el ejemplo. 
 
--------------------------PONER IMAGEN-------------------------------------------------
+![choices2](https://user-images.githubusercontent.com/42527034/118009566-c2453c80-b313-11eb-893a-071a5a640948.png)
+
+![Screenshot_2021-05-12-11-23-58-810_maceda alejandro alexiavnplayer](https://user-images.githubusercontent.com/42527034/118010457-aee6a100-b314-11eb-9627-6bed16c63014.jpg)
 
 Se puede seguir asi hasta n decisiones agregando sus respectivos parametros (Todo debe ser en una sola línea). La instrucción **[CHOISES]** y **[CHOISESIMAGE]** deben ir al final de cada archivo de la carpeta **Scripts** para continuar la historia, exceptuando el ultimo archivo de la novela. 
 
-### [CHOISESIMAGE]
+### [CHOICESIMAGE]
 
 La instrucción es muy similar a **[CHOICES]**, la diferencias es que en lugar de usar botones ahora se pueden utilizar imágenes, como minímo se necesitan 5 parámetros:
 
