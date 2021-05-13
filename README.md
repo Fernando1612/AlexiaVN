@@ -135,7 +135,7 @@ La manipulación y vizualización de las diferentes carpetas y archivos se puede
 
 ## Instrucciones
 
-Acontinuación se describirán las intrucciones con las que cuenta Alexia VN, estas instrucciones van dentro de los archivos **txt** que se encuentran dentro de la carpeta **Scripts**, observe que se utiliza el símbolo **+** como separador.
+A continuación se describirán las intrucciones con las que cuenta Alexia VN, estas instrucciones van dentro de los archivos **txt** que se encuentran dentro de la carpeta **Scripts**, observe que se utiliza el símbolo **+** como separador.
 
 ### [BGM]
 
@@ -409,7 +409,7 @@ https://user-images.githubusercontent.com/42527034/118031515-3d1a5180-b32c-11eb-
 
 ### Ayuda
 
-En la ventana de **Ayuda** se mostrarán enlances a tutoriales para utlizar la aplicación asi como un enlace a está documentación, para ir a cualquiera de ellos solo debes dar clic en el enlace y se abrirá tu navegador web.
+En la ventana de **Ayuda** se mostrarán enlances a tutoriales para utlizar la aplicación asi como un enlace a está documentación y una novela demo, para ir a cualquiera de ellos solo debes dar clic en el enlace y se abrirá tu navegador web.
 
 ### Guardar partida 
 
@@ -457,11 +457,11 @@ Para compartir tu proyecto con cualquier persona lo primero que debes hacer el c
 
 https://user-images.githubusercontent.com/42527034/118033104-09402b80-b32e-11eb-9e31-c33c6fac256d.mp4
 
-La otra presona deberá tener la aplicación de Alexia VN instalada en su celular. Una vez que la persona reciba el archivo comprimido **.zip**, deberá colocar dicho archivo dentro de la carperta **alexvn** y despues descomprimirlo (Esto se puede hacer desde una computadora o utilizando una aplicación como **ASTRO** para celular), cuando el archivo este descomprimido aparecera una carpeta con el nombre del proyecto.
+La otra persona deberá tener la aplicación de Alexia VN instalada en su celular. Una vez que la persona reciba el archivo comprimido **.zip**, deberá colocar dicho archivo dentro de la carperta **alexvn** y despues descomprimirlo (Esto se puede hacer desde una computadora o utilizando una aplicación como **ASTRO** para celular), cuando el archivo este descomprimido aparecera una carpeta con el nombre del proyecto.
 
 https://user-images.githubusercontent.com/42527034/118033455-7784ee00-b32e-11eb-9167-10548d2addbc.mp4
 
-Finalmente, se deben seguir los pasas descritos en **Cargar proyectos**.
+Finalmente, se deben seguir los pasos descritos en **Cargar proyectos**.
 
 ## Contribuir código 
 
