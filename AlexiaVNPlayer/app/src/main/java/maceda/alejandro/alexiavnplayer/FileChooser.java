@@ -34,7 +34,7 @@ public class FileChooser extends ListActivity {
         //	show_toast(""+ csv);
         if (option == 1) {
             //currentDir = new File("/sdcard/alexavn/UltimoDinosaurio");
-            currentDir = new File("/sdcard");
+            currentDir = new File("/sdcard/alexavn");
         } else if (option == 2) {
             currentDir = new File("/sdcard/alexainventario/backup/");
         } else

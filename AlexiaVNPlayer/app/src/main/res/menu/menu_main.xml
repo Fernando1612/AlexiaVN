@@ -15,7 +15,7 @@
     <item
         android:id="@+id/action_ayuda"
         android:orderInCategory="100"
-        android:title="Ayuda"
+        android:title="@string/ayuda"
         app:showAsAction="never" />
 
 </menu>

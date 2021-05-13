@@ -42,12 +42,12 @@ public class Settings {
                 if (hombre.isChecked() == true && !nombre.getText().toString().isEmpty()) {
                     sexo = "Hombre";
                     interfaz.ResultadoCuadroDialogo(nombre.getText().toString(), sexo);
-                    Toast.makeText(view.getContext(),"Datos guardados", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(),view.getContext().getString(R.string.guardando), Toast.LENGTH_SHORT).show();
                     dialogo.dismiss();
                 } else if (mujer.isChecked() == true && !nombre.getText().toString().isEmpty()) {
                     sexo = "Mujer";
                     interfaz.ResultadoCuadroDialogo(nombre.getText().toString(), sexo);
-                    Toast.makeText(view.getContext(),"Datos guardados", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(),view.getContext().getString(R.string.guardando), Toast.LENGTH_SHORT).show();
                     dialogo.dismiss();
                 } else {
 

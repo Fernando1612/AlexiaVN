@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                     createcarpet();
                     open_alexavn();
                 } else {
-                    show_toast("No hay permisos otorgados");
+                    show_toast(getString(R.string.sin_permisos));
                 }
             }
         });
@@ -206,12 +206,12 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                         }
                         buffer.close();
                     } catch (Exception ex) {
-                        show_toast("Open failed");
+                        show_toast(getString(R.string.sin_permisos));
                         succes = false;
 
                     } finally {
                         if (succes) {
-                            show_toast("Loading");
+                            show_toast(getString(R.string.cargando));
 
                         }
 
@@ -348,7 +348,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         if (f.mkdirs()) {
             //se ha creado bien
             //string.replace(" ", "\\ ");
-            show_toast("Carpeta creada");
+            show_toast(getString(R.string.carpeta_creada));
             unzip();
 
         } else {
@@ -358,7 +358,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                     unzip();
                 }
             } else
-                show_toast("Carpeta o Sd no encontrada, dar permisos de almacenamiento");
+                show_toast(getString(R.string.carpeta_no_encontrada));
         }
     }
 
@@ -450,14 +450,14 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                 EditText editText = customAlertDialog.findViewById(R.id.edit_text);
                 String nombreProyecto = editText.getText().toString().trim();
                 if (nombreProyecto.isEmpty()){
-                    show_toast("Ingresa un nombre por favor");
+                    show_toast(getString(R.string.ingresar_nombre));
                 }else{
                     if (isStoragePermissionGranted()) {
-                        show_toast("Creando proyecto");
+                        show_toast(getString(R.string.creando_proyecto));
                         crearProyecto(nombreProyecto);
                         dialog.dismiss();
                     } else {
-                        show_toast("No hay permisos otorgados");
+                        show_toast(getString(R.string.sin_permisos));
                     }
                 }
             }
@@ -484,7 +484,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         File Voices = new File("/sdcard/alexavn/"+nombreProyecto+"/Voices");
         File config = new File("/sdcard/alexavn/"+nombreProyecto+"/config.avn");
         if (nombre.exists()){
-            show_toast("El proyecto ya existe");
+            show_toast(getString(R.string.proyecto_exitente));
         }else{
             nombre.mkdirs();
             if(nombre.isDirectory()){
@@ -504,9 +504,9 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                         e.printStackTrace();
                     }
                 }
-                show_toast("Proyecto creado");
+                show_toast(getString(R.string.proyecto_creado));
             }else {
-                show_toast("Error al crear el poyecto");
+                show_toast(getString(R.string.error_crear_proyecto));
             }
         }
     }

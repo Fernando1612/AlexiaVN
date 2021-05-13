@@ -52,7 +52,6 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:gravity="center"
-                        android:text="Place_holder"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 

@@ -75,7 +75,7 @@ public class Preferences extends FragmentActivity {
         //Fragment de inicio
         getSupportFragmentManager().beginTransaction().add(R.id.contenedor_fragment, fragmentGuardar).commit();
         textoArriba = (TextView) findViewById(R.id.guardar);
-        textoArriba.setText("Guardar");
+        textoArriba.setText(getString(R.string.guardar));
     }
 
     private void regresar() {
@@ -86,28 +86,28 @@ public class Preferences extends FragmentActivity {
     public void guardar(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.contenedor_fragment, fragmentGuardar);
-        textoArriba.setText("Guardar");
+        textoArriba.setText(getString(R.string.guardar));
         transaction.commit();
     }
 
     public void cargar(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.contenedor_fragment, fragmentCargar);
-        textoArriba.setText("Cargar");
+        textoArriba.setText(getString(R.string.cargar));
         transaction.commit();
     }
 
     public void galeria(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.contenedor_fragment, fragmentGaleria);
-        textoArriba.setText("Galeria");
+        textoArriba.setText(getString(R.string.galeria));
         transaction.commit();
     }
 
     public void preferencias(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.contenedor_fragment, fragmentInformacion);
-        textoArriba.setText("Preferencias");
+        textoArriba.setText(getString(R.string.preferencias));
         transaction.commit();
     }
 
@@ -121,7 +121,7 @@ public class Preferences extends FragmentActivity {
     public void acercaDe(View view) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.contenedor_fragment, fragmentAcercaDe);
-        textoArriba.setText("Acerca de");
+        textoArriba.setText(getString(R.string.acerca_de));
         transaction.commit();
 
     }

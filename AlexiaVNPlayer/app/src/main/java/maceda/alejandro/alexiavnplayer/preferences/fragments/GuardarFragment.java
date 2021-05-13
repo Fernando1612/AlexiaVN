@@ -165,9 +165,9 @@ public class GuardarFragment extends Fragment implements View.OnClickListener, V
         if (imgFile.exists()) {
             myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             slot.setImageBitmap(myBitmap);
-            Toast.makeText(getContext(), "Guardando...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getString(R.string.guardando), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(getContext(), "Archivo no encontrado...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getString(R.string.sin_imagen), Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -214,7 +214,7 @@ public class GuardarFragment extends Fragment implements View.OnClickListener, V
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         eliminarPreferencias(fileSlot, slot, textView);
-                        Toast.makeText(getContext(), "Datos borrados...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.datos_borrados), Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -230,7 +230,7 @@ public class GuardarFragment extends Fragment implements View.OnClickListener, V
 
     private void ponerFecha(TextView textView) {
         Calendar calendar = Calendar.getInstance();
-        fechaActual = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        fechaActual = DateFormat.getDateInstance().format(calendar.getTime());
         textView.setText(fechaActual);
     }
 

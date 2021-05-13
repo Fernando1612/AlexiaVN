@@ -735,13 +735,13 @@ public class alexavn extends Activity {
         if (f.mkdirs()) {
             //se ha creado bien
             //string.replace(" ", "\\ ");
-            show_toast("Carpeta creada");
+            show_toast(getString(R.string.carpeta_creada));
 
         } else {
             if (f.exists()) {
                 //	((MainActivity)getActivity()).show_toast("La carpeta ya existe");
             } else
-                show_toast("Carpeta o Sd no econtrada");
+                show_toast(getString(R.string.carpeta_no_encontrada));
         }
     }
 
@@ -781,11 +781,11 @@ public class alexavn extends Activity {
             succes = true;
             //	((MainActivity) getActivity()).show_toast("Loading complete");
         } catch (Exception ex) {
-            Log.d(TAG, "Open failed");
+            Log.d(TAG, getString(R.string.fallo_abrir));
             succes = false;
         } finally {
             if (succes) {
-                show_toast("Loading");
+                show_toast(getString(R.string.cargando));
 
             }
 
@@ -1076,7 +1076,7 @@ public class alexavn extends Activity {
 
     public void save(View view) {
         Calendar calendar = Calendar.getInstance();
-        fechaActual = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        fechaActual = DateFormat.getDateInstance().format(calendar.getTime());
         SharedPreferences preferences = this.getSharedPreferences("saveVNslot1", Context.MODE_PRIVATE);
         String saveImage = file_image;
         SharedPreferences.Editor editor = preferences.edit();
@@ -1098,7 +1098,7 @@ public class alexavn extends Activity {
         editor.putString("saveLineaExacta", saveLineaExacta);
         editor.commit();
 
-        show_toast("Guardando");
+        show_toast(getString(R.string.guardando));
     }
 
     private void recuperarDatos(String[] separated) {
@@ -1271,7 +1271,7 @@ public class alexavn extends Activity {
             fin = true;
         } else if (separated[0].equals("[END]")) {
             //stop_mp();
-            show_toast("FIN DE LA NOVELA");
+            show_toast(getString(R.string.fin_novel));
             finish();
             stop_mp();
         } else if (separated[0].equals("[FADEOUT]")) {
@@ -1519,7 +1519,7 @@ public class alexavn extends Activity {
         } else if (separated[0].equals("[CHOICES]")) {
             next_line(null);
         } else if (separated[0].equals("[END]")) {
-            show_toast("FIN DE LA NOVELA");
+            show_toast(getString(R.string.fin_novel));
             finish();
             stop_mp();
         } else if (separated[0].equals("[FADEOUT]")) {

@@ -3,14 +3,54 @@
     <string name="action_settings">Configuración</string>
     <string name="action_project">Crear proyecto en blanco</string>-
     <string name="confirmTitle">¿Estas seguro?</string>
-    <string name="confirmMessage">Se quitara de la lista</string>
+    <string name="confirmMessage">Se quitará de la lista</string>
 
     <string name="cancel_btn">Cancelar</string>
     <string name="delete_btn">Eliminar</string>
     <string name="delete">Eliminar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Galeria</string>
-
-
-
+    <string name="galeria">Galeria</string>
+    <string name="guardar">Guardar</string>
+    <string name="cargar">Cargar</string>
+    <string name="menu_principal">Menú Principal</string>
+    <string name="preferencias">Preferencias</string>
+    <string name="acerca_de">Acerca de</string>
+    <string name="ok">OK</string>
+    <string name="description_info">Crea y reproduce novelas visuales de una manera muy sencilla.</string>
+    <string name="tutoriales">Tutoriales</string>
+    <string name="tutorial_1">Tutorial alexia novel player: primera parte</string>
+    <string name="tutorial_2">Tutorial alexia novel player: segunda parte</string>
+    <string name="documentacion">Documentación</string>
+    <string name="des_decumentacion">Documentación de Alexia visual novel</string>
+    <string name="sin_novelas">No hay novelas recientes</string>
+    <string name="placeholder_proyecto">Ingresa el nombre de tu proyecto</string>
+    <string name="title_acerca">Alexia Visual Novel Engine</string>
+    <string name="contacto">Contacto</string>
+    <string name="alejandro_maceda_leon">Alejandro Maceda Leon</string>
+    <string name="maceda_alejandro_gmail_com">maceda.alejandro@gmail.com</string>
+    <string name="fernando_maceda_patricio">Fernando Maceda Patricio</string>
+    <string name="fernando_patricio_maceda_gmail_com">fernando.patricio.maceda@gmail.com</string>
+    <string name="pagina_oficial">Página oficial</string>
+    <string name="sexo">Sexo</string>
+    <string name="nombre">Nombre</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="sin_permisos">No hay permisos otorgados</string>
+    <string name="fallo_abrir">Error al abrir el archivo</string>
+    <string name="cargando">Cargando</string>
+    <string name="carpeta_creada">Carpeta creada</string>
+    <string name="carpeta_no_encontrada">Carpeta o Sd no encontrada, dar permisos de almacenamiento</string>
+    <string name="ingresar_nombre">Ingresa un nombre por favor</string>
+    <string name="creando_proyecto">Creando proyecto</string>
+    <string name="proyecto_exitente">El proyecto ya existe</string>
+    <string name="proyecto_creado">Proyecto creado</string>
+    <string name="error_crear_proyecto">Error al crear el proyecto</string>
+    <string name="guardando">Guardando</string>
+    <string name="fin_novel">FIN DE LA NOVELA</string>
+    <string name="sin_datos_guardados">No tienes datos guardados</string>
+    <string name="sin_imagen">Imagen no encontrada</string>
+    <string name="datos_borrados">Datos borrados</string>
+    <string name="demo">Demo</string>
 </resources>

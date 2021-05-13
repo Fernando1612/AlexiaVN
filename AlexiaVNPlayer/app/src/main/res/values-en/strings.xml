@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Alexia VN Player</string>
+    <string name="action_settings">Setting</string>
+    <string name="action_project">Create blank project</string>-
+    <string name="confirmTitle">You\'re sure?</string>
+    <string name="confirmMessage">Will be removed from the list</string>
+
+    <string name="cancel_btn">Cancel</string>
+    <string name="delete_btn">Remove</string>
+    <string name="delete">Remove</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Gallery</string>
+    <string name="galeria">Gallery</string>
+    <string name="guardar">Save</string>
+    <string name="cargar">Load</string>
+    <string name="menu_principal">Main menu</string>
+    <string name="preferencias">Preferences</string>
+    <string name="acerca_de">About</string>
+    <string name="ok">OK</string>
+    <string name="description_info">Create and reproduce visual novels in a very simple way.</string>
+    <string name="tutoriales">Tutorials</string>
+    <string name="tutorial_1">Alexia novel player tutorial: part one</string>
+    <string name="tutorial_2">Alexia novel player tutorial: part two</string>
+    <string name="documentacion">Documentation</string>
+    <string name="des_decumentacion">Alexia visual novel documentation</string>
+    <string name="sin_novelas">No recent novels</string>
+    <string name="placeholder_proyecto">Enter the name of your project</string>
+    <string name="title_acerca">Alexia Visual Novel Engine</string>
+    <string name="contacto">Contact</string>
+    <string name="alejandro_maceda_leon">Alejandro Maceda Leon</string>
+    <string name="maceda_alejandro_gmail_com">maceda.alejandro@gmail.com</string>
+    <string name="fernando_maceda_patricio">Fernando Maceda Patricio</string>
+    <string name="fernando_patricio_maceda_gmail_com">fernando.patricio.maceda@gmail.com</string>
+    <string name="pagina_oficial">Official website</string>
+    <string name="sexo">Gender</string>
+    <string name="nombre">Name</string>
+    <string name="hombre">Male</string>
+    <string name="mujer">Female</string>
+    <string name="ayuda">Help</string>
+    <string name="sin_permisos">No permits granted</string>
+    <string name="fallo_abrir">Open failed</string>
+    <string name="cargando">Loading</string>
+    <string name="carpeta_creada">Folder created</string>
+    <string name="carpeta_no_encontrada">Folder or Sd not found, give storage permissions</string>
+    <string name="ingresar_nombre">Please enter a name</string>
+    <string name="creando_proyecto">Creating project</string>
+    <string name="proyecto_exitente">The project already exists</string>
+    <string name="proyecto_creado">Project created</string>
+    <string name="error_crear_proyecto">Error creating project</string>
+    <string name="guardando">Saving</string>
+    <string name="fin_novel">END OF THE NOVEL</string>
+    <string name="sin_datos_guardados">You have no saved data</string>
+    <string name="sin_imagen">Image not found</string>
+    <string name="datos_borrados">Erased data</string>
+</resources>
