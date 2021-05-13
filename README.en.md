@@ -63,3 +63,68 @@ and 2 files:
 The structure of the folders has the following form.
 
 ![carpetasAlexia](https://user-images.githubusercontent.com/42527034/118007843-249d3d80-b312-11eb-8c45-9c146020c2ad.png)
+
+### BGM
+
+In the folder **BGM** the background music that goes in the visual novel is stored, the extension of the files can be .mp3, .Wav, .Flac, etc.
+
+### Chars
+
+In the **Chars** folder the images of the visual novel characters are stored, it is recommended to use images with a .png extension and no background.
+
+### FX
+
+In the **FX** folder the sound effects used in the visual novel are stored, the file extensions can be .mp3, .Wav, .Flac, etc.
+
+### Menu
+
+We are working on it...
+
+### Scenes
+
+In the **Scenes** folder stores most of the images to be used in the visual novel, such as backgrounds, scenes, etc. The file extension can be .jpp, .png, .bmp, etc. 
+
+### Scripts
+
+In the **Scripts** folder the files that are read by the application are stored, which will contain all the instructions, these files must have an extension **.txt**.
+
+### Textbox
+
+In the **Textbox** folder the images of the text boxes that will be used in the visual novel are stored, the images are recommended to save with **.png** extension and without a background for a better experience.
+
+### Video
+
+Videos to be used in the visual novel are stored in the **Video** folder. The video file extension can be .mp4, .avi, .mkv, .flv, etc.
+
+### Voices
+
+We are working on it...
+
+### config.avn
+
+The **config.avn** file should contain only **3** elements:
+
+1. Title of the visual novel
+2. File in the **Scripts** folder with which you want to start the novel
+3. Cover image for the visual novel
+
+With the help of a text editor, open the file and place the elements in that order, separated by commas.
+
+![config](https://user-images.githubusercontent.com/42527034/117898511-b95c5880-b28a-11eb-8940-9cfd4a69ee14.png)
+
+### Cover page
+
+The ** cover ** file is an image which will be the cover of the visual novel and will be displayed when loading the ** config.avn ** file to the application. The file extension can be .jpp, .png, .bmp, etc.
+
+
+
+### Note
+
+The manipulation and visualization of the different folders and files can be done on the computer without any problem, you just have to connect the cell phone to it and browse through its files until you find the project.
+
+
+
+
+
+
+
