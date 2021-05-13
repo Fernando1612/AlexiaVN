@@ -39,3 +39,27 @@ Finally, click on the cover of your novel to start it.
 
 https://user-images.githubusercontent.com/42527034/117898415-8c0faa80-b28a-11eb-969b-d079a91c9084.mp4
 
+
+## Folders and files
+
+A basic Alexia VN project contains 10 folders:
+
+1. Folder with the name of the project
+2. BGM
+3. Chars
+4. FX
+5. Menu
+6. Scenes
+7. Scripts
+8. Textbox
+9. Video
+10. Voices
+
+and 2 files:
+
+1. config.avn
+2. An image for the cover of the novel 
+
+The structure of the folders has the following form.
+
+![carpetasAlexia](https://user-images.githubusercontent.com/42527034/118007843-249d3d80-b312-11eb-8c45-9c146020c2ad.png)
