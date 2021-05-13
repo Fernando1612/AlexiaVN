@@ -114,7 +114,7 @@ With the help of a text editor, open the file and place the elements in that ord
 
 ### Cover page
 
-The ** cover ** file is an image which will be the cover of the visual novel and will be displayed when loading the ** config.avn ** file to the application. The file extension can be .jpp, .png, .bmp, etc.
+The **cover** file is an image which will be the cover of the visual novel and will be displayed when loading the **config.avn** file to the application. The file extension can be .jpp, .png, .bmp, etc.
 
 
 
