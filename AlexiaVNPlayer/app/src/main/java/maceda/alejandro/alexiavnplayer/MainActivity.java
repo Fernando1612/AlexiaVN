@@ -30,6 +30,7 @@ import android.widget.Toast;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -161,6 +162,8 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         if (Build.VERSION.SDK_INT >= 23) {
             if (this.checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED) {
+
+
                 // Log.v(TAG, "Permission is granted");
                 //    isGPSPermissionGranted();
                 return true;
@@ -387,6 +390,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                 //is = new FileInputStream(path + zipname);
                 is = assetManager.open("UltimoDinosaurio.zip"); //new FileInputStream("assets/VN.zip");
                 zis = new ZipInputStream(new BufferedInputStream(is));
+
                 ZipEntry mZipEntry;
                 byte[] buffer = new byte[1024];
                 int count;
