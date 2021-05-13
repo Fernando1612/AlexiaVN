@@ -10,3 +10,32 @@ Create a blank project from the application by going to the menu at the top and 
 
 https://user-images.githubusercontent.com/42527034/117889857-d8062380-b279-11eb-8cae-cca802bd1ade.mp4
 
+Then, with the help of a file browser (we recommend ASTRO) or by connecting your cell phone to a computer, go to the **alexavn** folder.
+
+Inside **alexavn** you will find a folder with the name of your project and inside that folder you will see the basic folders to create a visual novel. 
+
+https://user-images.githubusercontent.com/42527034/117898276-3dfaa700-b28a-11eb-9f7a-be64e13296f1.mp4
+
+Inside your project folder you will have to put the image you want as the cover of your visual novel.
+
+Now, go to the **Scenes** folder and place the image that you will use as the background in your visual novel (in this folder you will put all the images that you are going to occupy).
+
+Then go to the **Scripts** folder and create a file with the extension **.txt** (in this folder you will save the files that will be read by the application).
+
+https://user-images.githubusercontent.com/42527034/117898321-566ac180-b28a-11eb-8ec2-3c1ba4add811.mp4
+
+With the help of the text editor of your choice, open the file with the **.txt** extension and start writing your story.
+First, put all the resources with which you want your novel to start, in this case we add the background and the text that we want to show on the screen using the **+** symbol as a separator.
+
+![carbono](https://user-images.githubusercontent.com/42527034/117898505-b5c8d180-b28a-11eb-8c08-9a54efee1ddd.png)
+
+Go back to where all the folders of your project are and with the help of your text editor open the file **config.avn**, inside that file you will put the title of your novel, the name of the file of your folder **Scripts** with which you want to start it and the image you want as the cover in that order and separated by a comma ",".
+
+![config](https://user-images.githubusercontent.com/42527034/117898511-b95c5880-b28a-11eb-8940-9cfd4a69ee14.png)
+
+Open **Alexia VN player**, find the file **config.avn** and click on it to load your novel.
+
+Finally, click on the cover of your novel to start it. 
+
+https://user-images.githubusercontent.com/42527034/117898415-8c0faa80-b28a-11eb-969b-d079a91c9084.mp4
+
