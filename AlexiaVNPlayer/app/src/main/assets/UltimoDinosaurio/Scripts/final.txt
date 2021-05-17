@@ -1,0 +1,3 @@
+[IMG]+crazy.jpg
+[TEXT]+FIN
+[END]

@@ -172,7 +172,6 @@ public class GuardarFragment extends Fragment implements View.OnClickListener, V
 
     }
 
-
     private void guardarPreferencias(String fileSlot) {
         SharedPreferences preferences = this.getActivity().getSharedPreferences(fileSlot, Context.MODE_PRIVATE);
         String saveImage = file_image;
@@ -208,23 +207,47 @@ public class GuardarFragment extends Fragment implements View.OnClickListener, V
 
     private void crearAlerta(final String fileSlot, ImageButton slot, TextView textView) {
         AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
-        alerta.setMessage("¿Deseas borrar los datos?")
+        alerta.setMessage(getString(R.string.borrar_datos))
                 .setCancelable(false)
-                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.si), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         eliminarPreferencias(fileSlot, slot, textView);
                         Toast.makeText(getContext(), getString(R.string.datos_borrados), Toast.LENGTH_SHORT).show();
                     }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                     }
                 });
         AlertDialog titulo = alerta.create();
-        titulo.setTitle("Borrar datos");
+        titulo.setTitle(getString(R.string.borrardatos));
+        titulo.show();
+    }
+
+    private void alertaSobrescribir(String fileimage, ImageButton slot, TextView date, String preferencias){
+        AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
+        alerta.setMessage(getString(R.string.sobreescribir_datos))
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.si), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ponerImagen(fileimage, slot);
+                        ponerFecha(date);
+                        guardarPreferencias(preferencias);
+                        Toast.makeText(getContext(),getString(R.string.guardando),Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog titulo = alerta.create();
+        titulo.setTitle(getString(R.string.sobreescribir));
         titulo.show();
     }
 
@@ -238,34 +261,70 @@ public class GuardarFragment extends Fragment implements View.OnClickListener, V
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imgGuardar1:
-                ponerImagen(file_image, primerSlot);
-                ponerFecha(date1);
-                guardarPreferencias("saveVNslot1");
+                SharedPreferences preferences = this.getActivity().getSharedPreferences("saveVNslot1", Context.MODE_PRIVATE);
+                String fecha = preferences.getString("date", "No hay datos...");
+                if (fecha.equals("No hay datos...")) {
+                    ponerImagen(file_image, primerSlot);
+                    ponerFecha(date1);
+                    guardarPreferencias("saveVNslot1");
+                } else {
+                    alertaSobrescribir(file_image, primerSlot,date1,"saveVNslot1");
+                }
                 break;
             case R.id.imgGuardar2:
-                ponerImagen(file_image, segundoSlot);
-                ponerFecha(date2);
-                guardarPreferencias("saveVNslot2");
+                SharedPreferences preferences2 = this.getActivity().getSharedPreferences("saveVNslot2", Context.MODE_PRIVATE);
+                String fecha2 = preferences2.getString("date", "No hay datos...");
+                if (fecha2.equals("No hay datos...")) {
+                    ponerImagen(file_image, segundoSlot);
+                    ponerFecha(date2);
+                    guardarPreferencias("saveVNslot2");
+                } else {
+                    alertaSobrescribir(file_image, segundoSlot,date2,"saveVNslot2");
+                }
                 break;
             case R.id.imgGuardar3:
-                ponerImagen(file_image, tercerSlot);
-                ponerFecha(date3);
-                guardarPreferencias("saveVNslot3");
+                SharedPreferences preferences3 = this.getActivity().getSharedPreferences("saveVNslot3", Context.MODE_PRIVATE);
+                String fecha3 = preferences3.getString("date", "No hay datos...");
+                if (fecha3.equals("No hay datos...")) {
+                    ponerImagen(file_image, tercerSlot);
+                    ponerFecha(date3);
+                    guardarPreferencias("saveVNslot3");
+                } else {
+                    alertaSobrescribir(file_image, tercerSlot,date3,"saveVNslot3");
+                }
                 break;
             case R.id.imgGuardar4:
-                ponerImagen(file_image, cuartoSlot);
-                ponerFecha(date4);
-                guardarPreferencias("saveVNslot4");
+                SharedPreferences preferences4 = this.getActivity().getSharedPreferences("saveVNslot4", Context.MODE_PRIVATE);
+                String fecha4 = preferences4.getString("date", "No hay datos...");
+                if (fecha4.equals("No hay datos...")) {
+                    ponerImagen(file_image, cuartoSlot);
+                    ponerFecha(date4);
+                    guardarPreferencias("saveVNslot4");
+                } else {
+                    alertaSobrescribir(file_image, cuartoSlot, date4,"saveVNslot4");
+                }
                 break;
             case R.id.imgGuardar5:
-                ponerImagen(file_image, quintoSlot);
-                ponerFecha(date5);
-                guardarPreferencias("saveVNslot5");
+                SharedPreferences preferences5 = this.getActivity().getSharedPreferences("saveVNslot5", Context.MODE_PRIVATE);
+                String fecha5 = preferences5.getString("date", "No hay datos...");
+                if (fecha5.equals("No hay datos...")) {
+                    ponerImagen(file_image, quintoSlot);
+                    ponerFecha(date5);
+                    guardarPreferencias("saveVNslot5");
+                } else {
+                    alertaSobrescribir(file_image, quintoSlot, date5,"saveVNslot5");
+                }
                 break;
             case R.id.imgGuardar6:
-                ponerImagen(file_image, sextoSlot);
-                ponerFecha(date6);
-                guardarPreferencias("saveVNslot6");
+                SharedPreferences preferences6 = this.getActivity().getSharedPreferences("saveVNslot6", Context.MODE_PRIVATE);
+                String fecha6 = preferences6.getString("date", "No hay datos...");
+                if (fecha6.equals("No hay datos...")) {
+                    ponerImagen(file_image, sextoSlot);
+                    ponerFecha(date6);
+                    guardarPreferencias("saveVNslot6");
+                } else {
+                    alertaSobrescribir(file_image, segundoSlot, date6,"saveVNslot6");
+                }
                 break;
             default:
                 break;

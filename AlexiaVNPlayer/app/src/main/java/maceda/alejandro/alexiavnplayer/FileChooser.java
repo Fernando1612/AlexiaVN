@@ -25,7 +25,6 @@ public class FileChooser extends ListActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
@@ -59,8 +58,6 @@ public class FileChooser extends ListActivity {
                 String date_modify = formater.format(lastModDate);
                 if (!ff.isHidden()) {
                     if (ff.isDirectory()) {
-
-
                         File[] fbuf = ff.listFiles();
                         int buf = 0;
                         if (fbuf != null) {
@@ -121,6 +118,7 @@ public class FileChooser extends ListActivity {
         Intent intent = new Intent();
         intent.putExtra("GetPath", currentDir.toString() + "/");
         intent.putExtra("GetFileName", o.getName());
+
 
         setResult(RESULT_OK, intent);
 

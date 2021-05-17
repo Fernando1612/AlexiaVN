@@ -52,6 +52,4 @@
 [TEXT]+"YA OS DIJE QUE YO LOS MATE A TODOS, Y LOS SALVE DE LOS ALIENS TAMBIEN"
 [TEXT]+Dadle mas medicamento, vaya loco esta hecho...
 [TEXT]+"Y pensar que este era el ultimo dinosaurio del universo"
-[IMG]+crazy.jpg
-[TEXT]+FIN
-[END]
+[CHOICESIMAGE]+¿Qué decisión debo tomar?+primera.png+final.txt+500+500+segunda.png+final.txt+500+500

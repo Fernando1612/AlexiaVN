@@ -54,6 +54,7 @@ public class alexavn extends Activity {
     private String lastwrite = "";
     private boolean fin = false;
     private LinearLayout ll;
+    private int linea;
     private String line;
     private RelativeLayout layout;
     private Animation animFadeIn;
@@ -80,6 +81,7 @@ public class alexavn extends Activity {
     private String recuperarImageChar = "";
     private String recuperarTexto = "";
 
+    private String comprobar = "";
 
     private ImageButton btnPreferences;
 
@@ -98,10 +100,7 @@ public class alexavn extends Activity {
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
-
         Intent intent = getIntent();
-
         vn_name = intent.getStringExtra("vnname");
         file_path = intent.getStringExtra("path");
         file_name = intent.getStringExtra("file");
@@ -111,29 +110,19 @@ public class alexavn extends Activity {
         recent_id = intent.getLongExtra("recent_id", 0);
         startpage = intent.getIntExtra("start", 1);
         textSize = intent.getIntExtra("textSize", 16);
-
         recuperarLineaExacta = intent.getStringExtra("saveLineaExacta");
         recuperarImageFondo = intent.getStringExtra("saveImageFondo");
         recuperarImageBox = intent.getStringExtra("saveImageBox");
         recuperarImageChar = intent.getStringExtra("saveImageChar");
         recuperarTexto = intent.getStringExtra("saveText");
-
         mmthemeId = intent.getIntExtra("theme", android.R.style.Theme_Holo);
         getPreferencesTheme();
         setTheme(themeId);
         super.onCreate(savedInstanceState);
-
-        //show_toast(vn_name + ": " + file_path + savefile + " " + line + " " + username + " " + recent_id );//+" page: "+startpage);
-
-        //show_toast(recuperarLineaExacta);
-
-
         writer = new Typewriter(this);
         setContentView(R.layout.alexavn);
         tv = (TextView) findViewById(R.id.text_story);
         character_tv = (TextView) findViewById(R.id.text_character);
-
-        //character_tv.setVisibility(View.GONE);
         character_tv.setTextSize((textSize));
         tv.setTextSize(textSize);
         iv_background = (ImageView) findViewById(R.id.iv);
@@ -1097,7 +1086,6 @@ public class alexavn extends Activity {
         editor.putString("saveImageChar", saveImageChar);
         editor.putString("saveLineaExacta", saveLineaExacta);
         editor.commit();
-
         show_toast(getString(R.string.guardando));
     }
 
@@ -1370,7 +1358,7 @@ public class alexavn extends Activity {
             //	show_title(separated[1], separated[2], Integer.parseInt( separated[3]), Integer.parseInt( separated[4]));
             //	vibrate(Integer.valueOf(separated[1]));
 
-            show_toast("id: " + recent_id + " - " + file_name);
+            //show_toast("id: " + recent_id + " - " + file_name);
             updateRecent(recent_id, file_name);
             //saveRecent(sarray[0], curPath, sarray[1], sarray[2]  );
 

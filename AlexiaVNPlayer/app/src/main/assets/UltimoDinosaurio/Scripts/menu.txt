@@ -8,6 +8,7 @@
 [CHARBIG]+left+narrador.png
 [IGNORE]+ blanco:#ffffff - negro:#000000 - rojo:#ff0000 mas en http://www.color-hex.com
 [TEXTCOLOR]+#ffffff
+[TEXT]+Esta es una historia de ejemplo de lo que puedes hacer con alexia vsual novel
 [TEXT]+"El ultimo dinosaurio en el universo"
 [TEXTCOLOR]+#000000
 [TEXT]+El último dinosaurio en el universo se despierta y se da cuenta que es el último dinosario vivo.
@@ -20,14 +21,12 @@
 [CLEARNAMECHAR]
 [TEXT]+El dinosaurio esta solo.
 [TEXT]+Añora a su familia y a sus amigos.
-[IGNORE]+ (texto + nombre de la imagen + nombre del siguiente archivo + ancho + alto) en pixeles
-[CHOISESIMAGE]+A DONDE VOY+crazy.jpg+k01.txt+300+300+intro.jpg+h01.txt+200+500+crazy.jpg+k01.txt+300+300+intro.jpg+h01.txt+200+500
 [TEXTCOLOR]+#ffffff
 [TEXT]+Incluso a sus enemigos.
 [TEXT]+Es preferible estar con tus enemigos que estar solo.
 [TEXT]+Eso pensó...
 [CHARCLEAR]+center
-[VIDEO]+lol.mp4
+[VIDEO]+video.mp4
 [IMG]+ocaso.jpg
 [TEXT]+Contemplando hacia el ocaso, piensa:
 [TEXT]+¿Cual es el punto de vivir...
@@ -56,4 +55,4 @@
 [TEXTBOXCLEAR]
 [TEXT]+y que mejor lugar que el ultimo del que tengo recuerdo...
 [IGNORE]+Texto+(texto de boton, script de ruta, tamaño del boton en pixeles, tamaño del texto, color de fondo, color de texto)+(otro boton, script, tamaño,tamaño de fuente, color de fondo, color de texto)+(mas botones)
-[CHOICES]+A donde deberia ir?+Avanzar hacia el norte+k01.txt+1000+24+#ff0000+#00FFFF+Avanzar hacia el sur+h01.txt+550+22+#247575+#00AEFF+Avanzar hacia el norte+k01.txt+1000+24+#ff0000+#00FFFF+Avanzar hacia el sur+h01.txt+550+22+#247575+#00AEFF
+[CHOICES]+A donde deberia ir?+Avanzar hacia el norte+k01.txt+1000+24+#ff0000+#00FFFF+Avanzar hacia el sur+h01.txt+550+22+#247575+#00AEFF

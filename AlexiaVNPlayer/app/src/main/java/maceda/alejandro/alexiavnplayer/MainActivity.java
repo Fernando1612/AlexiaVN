@@ -9,16 +9,24 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
+import android.os.Environment;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,14 +38,17 @@ import android.widget.Toast;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -45,6 +56,9 @@ import maceda.alejandro.alexiavnplayer.adapters.TvShowAdapter;
 import maceda.alejandro.alexiavnplayer.database.DatabaseConnector;
 import maceda.alejandro.alexiavnplayer.settings.Ayuda;
 import maceda.alejandro.alexiavnplayer.settings.Settings;
+
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity implements Settings.FinalizaCuadroDialogo {
     RecyclerView recyclerView;
@@ -65,56 +79,40 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
     public static final List<HashMap<String, String>> fillMaps = new ArrayList<HashMap<String, String>>();
     private ProgressDialog pd;
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        requestPermission();
+        //encontrarArchivo();
+        cargarPreferencias();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Snackbar.make(view, "Abriendo VN...", Snackbar.LENGTH_LONG)
-                //       .setAction("Action", null).show();
-                if (isStoragePermissionGranted()) {
-                    createcarpet();
+                if (checkPermission()) {
                     open_alexavn();
                 } else {
                     show_toast(getString(R.string.sin_permisos));
                 }
             }
         });
-
         tv_no_recent = (TextView) findViewById(R.id.tv_no_recent);
-
-        /*
-
-        for(int i=0;i<TvShows.length;i++)
-        {
-            TvShow tvShow = new TvShow();
-
-            tvShow.setTvshow(TvShows[i]);
-            tvShow.setImgTvshow(TvShowImgs[i]);
-
-            tvShows.add(tvShow);
-
-        }
-        if (tvShows.size() > 0) {
-            tv_no_recent.setVisibility(View.GONE);
-        }
-        */
         tvShowAdapter = new TvShowAdapter(tvShows);
-
         recyclerView = (RecyclerView) findViewById(R.id.TvShows);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(tvShowAdapter);
-
-
-        cargarPreferencias();
-
     }
 
     private void cargarPreferencias() {
@@ -158,25 +156,53 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
         startActivityForResult(chooseFile, 1);
     }
 
-    public boolean isStoragePermissionGranted() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (this.checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_GRANTED) {
+    private boolean checkPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            return Environment.isExternalStorageManager();
+        } else {
+            int result = ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE);
+            int result1 = ContextCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE);
+            return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED;
+        }
+    }
 
-
-                // Log.v(TAG, "Permission is granted");
-                //    isGPSPermissionGranted();
-                return true;
-            } else {
-                //  Log.v(TAG, "Permission is revoked");
-                // context.startActivity(new Intent(context, ProfileActivity.class));
-                //  isGPSPermissionGranted();
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-                return false;
+    private void requestPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            try {
+                Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                intent.addCategory("android.intent.category.DEFAULT");
+                intent.setData(Uri.parse(String.format("package:%s",getApplicationContext().getPackageName())));
+                startActivityForResult(intent, 2296);
+            } catch (Exception e) {
+                Intent intent = new Intent();
+                intent.setAction(android.provider.Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                startActivityForResult(intent, 2296);
             }
-        } else { //permission is automatically granted on sdk<23 upon installation
-            //  Log.v(TAG, "Permission is granted");
-            return true;
+        } else {
+            //below android 11
+            ActivityCompat.requestPermissions(this, new String[]{WRITE_EXTERNAL_STORAGE}, 1);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case 1:
+                if (grantResults.length > 0) {
+                    boolean READ_EXTERNAL_STORAGE = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    boolean WRITE_EXTERNAL_STORAGE = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+
+                    if (READ_EXTERNAL_STORAGE && WRITE_EXTERNAL_STORAGE) {
+                        createcarpet();
+                        //descomprime();
+                        String srcName = "UltimoDinosaurio";
+                        String dstName = "/sdcard/alexavn/UltimoDinosaurio";
+                        copyAssetFolder(this,srcName,dstName);
+                    } else {
+                        Toast.makeText(this, "Allow permission for storage access!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                break;
         }
     }
 
@@ -195,14 +221,15 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                     //	file.setText(curPath+curFileName);
                     boolean succes = false;
                     try {
-
-
                         FileReader file = new FileReader(curPath + curFileName);
                         BufferedReader buffer = new BufferedReader(file);
                         String line = "";
                         if ((line = buffer.readLine()) != null) {
                             sarray = line.split(",", -1);
+                            saveRecent(sarray[0], curPath, sarray[1], sarray[2]);
                             //			loadProducts(sarray[0], sarray[1], sarray[2],  sarray[3], sarray[4], sarray[5]);
+                        }else {
+                            show_toast(getString(R.string.archivo_vacioa));
                         }
                         buffer.close();
                     } catch (Exception ex) {
@@ -212,17 +239,32 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                     } finally {
                         if (succes) {
                             show_toast(getString(R.string.cargando));
-
                         }
 
                     }
-                    saveRecent(sarray[0], curPath, sarray[1], sarray[2]);
+
                     //start_alexavn(curPath, curFileName);
                     // tvShows.clear();
                     //new GetRecents().execute();
-
                 }
                 break;
+        }
+    }
+
+    private void cargarDatos(String path, String nFile){
+        String[] sarray = new String[3];
+        boolean succes = false;
+        try {
+            FileReader file = new FileReader(path + nFile);
+            BufferedReader buffer = new BufferedReader(file);
+            String line = "";
+            if ((line = buffer.readLine()) != null) {
+                sarray = line.split(",", -1);
+                saveRecent(sarray[0], path, sarray[1], sarray[2]);
+            }
+            buffer.close();
+        } catch (Exception ex) {
+            succes = false;
         }
     }
 
@@ -349,88 +391,16 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
             //se ha creado bien
             //string.replace(" ", "\\ ");
             show_toast(getString(R.string.carpeta_creada));
-            unzip();
+            //unzip();
 
         } else {
             if (f.exists()) {
-                File fzip = new File("/sdcard/alexavn/UltimoDinosaurio");
+                /*File fzip = new File("/sdcard/alexavn/UltimoDinosaurio");
                 if (!fzip.exists()) {
                     unzip();
-                }
+                }*/
             } else
                 show_toast(getString(R.string.carpeta_no_encontrada));
-        }
-    }
-
-    public void unzip() //throws IOException
-    {
-        pd = new ProgressDialog(MainActivity.this);
-        pd.setTitle("Extrayendo archivos");
-        pd.setMessage("Por favor espere...");
-        //	pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        pd.setCancelable(false);
-        pd.setIndeterminate(true);
-        pd.show();
-        new UnZipTask().execute("", "");
-    }
-
-    private class UnZipTask extends AsyncTask<String, Void, Boolean> {
-        @SuppressWarnings("rawtypes")
-        @Override
-        protected Boolean doInBackground(String... params) {
-            AssetManager assetManager = getAssets();
-
-            //String filePath = params[0];
-            //String destinationPath = params[1];
-
-            InputStream is;
-            ZipInputStream zis;
-            try {
-                String filename;
-                //is = new FileInputStream(path + zipname);
-                is = assetManager.open("UltimoDinosaurio.zip"); //new FileInputStream("assets/VN.zip");
-                zis = new ZipInputStream(new BufferedInputStream(is));
-
-                ZipEntry mZipEntry;
-                byte[] buffer = new byte[1024];
-                int count;
-
-                while ((mZipEntry = zis.getNextEntry()) != null) {
-                    // zapis do souboru
-                    filename = mZipEntry.getName();
-
-                    // Need to create directories if not exists, or
-                    // it will generate an Exception...
-                    if (mZipEntry.isDirectory()) {
-                        File fmd = new File("/sdcard/alexavn/" + filename); //path
-                        fmd.mkdirs();
-                        continue;
-                    }
-
-                    FileOutputStream fout = new FileOutputStream("/sdcard/alexavn/" + filename); //path
-
-                    // cteni zipu a zapis
-                    while ((count = zis.read(buffer)) != -1) {
-                        fout.write(buffer, 0, count);
-                    }
-
-                    fout.close();
-                    zis.closeEntry();
-                    //Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
-                }
-
-                zis.close();
-            } catch (Exception e) {
-                return false;
-            }
-
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean result) {
-            pd.dismiss();
-
         }
     }
 
@@ -452,7 +422,7 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
                 if (nombreProyecto.isEmpty()){
                     show_toast(getString(R.string.ingresar_nombre));
                 }else{
-                    if (isStoragePermissionGranted()) {
+                    if (checkPermission()) {
                         show_toast(getString(R.string.creando_proyecto));
                         crearProyecto(nombreProyecto);
                         dialog.dismiss();
@@ -510,4 +480,65 @@ public class MainActivity extends AppCompatActivity implements Settings.Finaliza
             }
         }
     }
+
+    private static boolean copyAssetFolder(Context context, String srcName, String dstName) {
+        try {
+            boolean result = true;
+            String fileList[] = context.getAssets().list(srcName);
+            if (fileList == null) return false;
+
+            if (fileList.length == 0) {
+                result = copyAssetFile(context, srcName, dstName);
+            } else {
+                File file = new File(dstName);
+                result = file.mkdirs();
+                for (String filename : fileList) {
+                    result &= copyAssetFolder(context, srcName + File.separator + filename, dstName + File.separator + filename);
+                }
+            }
+            return result;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private static boolean copyAssetFile(Context context, String srcName, String dstName) {
+        try {
+            InputStream in = context.getAssets().open(srcName);
+            File outFile = new File(dstName);
+            OutputStream out = new FileOutputStream(outFile);
+            byte[] buffer = new byte[1024];
+            int read;
+            while ((read = in.read(buffer)) != -1) {
+                out.write(buffer, 0, read);
+            }
+            in.close();
+            out.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private void encontrarArchivo(){
+        String miDictorio = "/sdcard/alexavn/";
+        File f = new File(miDictorio);
+        if(f.exists() && f.isDirectory()){
+            final Pattern p = Pattern.compile("^[\\w\\d]+");
+            File[] flist = f.listFiles(new FileFilter() {
+                @Override
+                public boolean accept(File pathname) {
+                    return p.matcher(pathname.getName()).matches();
+                }
+            });
+            for(File files: flist){
+                String directorio = files.toString() + "/";
+                String nFile = "config.avn";
+                cargarDatos(directorio,nFile);
+            }
+        }
+    }
+
 }

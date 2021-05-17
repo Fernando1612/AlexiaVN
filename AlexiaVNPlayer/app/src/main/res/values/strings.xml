@@ -53,4 +53,11 @@
     <string name="sin_imagen">Imagen no encontrada</string>
     <string name="datos_borrados">Datos borrados</string>
     <string name="demo">Demo</string>
+    <string name="archivo_vacioa">El archivo está vacio</string>
+    <string name="borrar_datos">¿Deseas borrar los datos?</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="borrardatos">Borrar datos</string>
+    <string name="sobreescribir_datos">¿Deseas sobreescribir los datos?</string>
+    <string name="sobreescribir">Sobreescribir datos</string>
 </resources>

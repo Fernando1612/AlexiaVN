@@ -149,7 +149,7 @@ public class CargarFragment extends Fragment implements View.OnClickListener {
         String saveImageChar = preferences.getString("saveImageChar", "No hay datos...");
         String saveLineaExacta = preferences.getString("saveLineaExacta", "No hay datos...");
         file_path = file_path + "Scripts/";
-        if (file_path.equals(datosVacios)) {
+        if (vn_name.equals(datosVacios)) {
             Toast.makeText(getContext(), getString(R.string.sin_datos_guardados), Toast.LENGTH_SHORT).show();
         } else {
             start_alexavn(recent_id, vn_name, file_path, file_name, savefile, line, username, file_image, saveImageFondo, saveImageBox, saveText, saveImageChar, saveLineaExacta);

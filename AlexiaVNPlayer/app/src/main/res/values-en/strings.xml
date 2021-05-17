@@ -52,4 +52,12 @@
     <string name="sin_datos_guardados">You have no saved data</string>
     <string name="sin_imagen">Image not found</string>
     <string name="datos_borrados">Erased data</string>
+    <string name="demo">Demo</string>
+    <string name="archivo_vacioa">The file is empty</string>
+    <string name="borrar_datos">Do you want to delete the data?</string>
+    <string name="si">Yes</string>
+    <string name="no">No</string>
+    <string name="borrardatos">Delete data</string>
+    <string name="sobreescribir_datos">Do you want to overwrite the data?</string>
+    <string name="sobreescribir">Overwrite data</string>
 </resources>
