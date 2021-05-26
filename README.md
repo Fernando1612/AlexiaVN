@@ -4,6 +4,12 @@
 
 Alexia visual novel es un motor de novelas visuales con el cual puedes crear y reproducir novelas visuales de una manera muy sencilla desde tu celular android. Puedes ingresar textos, imágenes, sonidos y vídeos para crear un gran historia. Es muy fácil de usar con instrucciones intuitivas y no es necesario saber programar.
 
+á
+é
+í
+ó
+ú
+
 ## Descarga en Play Store
 
 https://play.google.com/store/apps/details?id=maceda.alejandro.alexiavnplayer
