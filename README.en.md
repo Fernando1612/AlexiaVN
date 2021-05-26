@@ -3,7 +3,6 @@
 [![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/Fernando1612/AlexiaVN/blob/master/README.md)
 
 Alexia visual novel is a visual novel engine with which you can create and play visual novels in a very simple way from your android cell phone. You can enter texts, images, sounds and videos to create a great story. It is very easy to use with intuitive instructions and it is not necessary to know how to program.
-ÁÉÍÓÚÑÜ
 
 ## Download in Play Store
 
